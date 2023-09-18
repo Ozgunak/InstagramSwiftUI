@@ -52,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				F0FB2C652AB8F39800C5A089 /* InstagramSwiftUIApp.swift */,
+				F0FB2C732AB8F43C00C5A089 /* Core */,
 				F0FB2C672AB8F39800C5A089 /* ContentView.swift */,
 				F0FB2C692AB8F39B00C5A089 /* Assets.xcassets */,
 				F0FB2C6B2AB8F39B00C5A089 /* Preview Content */,
@@ -65,6 +66,37 @@
 				F0FB2C6C2AB8F39B00C5A089 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F0FB2C732AB8F43C00C5A089 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F0FB2C772AB8F45C00C5A089 /* Profile */,
+				F0FB2C762AB8F45500C5A089 /* Home */,
+				F0FB2C742AB8F44200C5A089 /* TabBar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F0FB2C742AB8F44200C5A089 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		F0FB2C762AB8F45500C5A089 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F0FB2C772AB8F45C00C5A089 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
