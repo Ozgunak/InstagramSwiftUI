@@ -16,7 +16,7 @@ struct MainTabView: View {
             Text("Explore")
                 .tabItem { Image(systemName: "magnifyingglass") }
 
-            Text("Add")
+            UploadView()
                 .tabItem { Image(systemName: "plus.circle") }
             
             ProfileView()
