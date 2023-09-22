@@ -8,6 +8,7 @@
 import SwiftUI
 import PhotosUI
 
+@MainActor
 class UploadViewModel: ObservableObject {
     @Published var selectedImage: PhotosPickerItem? {
         didSet { Task { await loadImage(from: selectedImage) } }
@@ -29,7 +30,7 @@ struct UploadView: View {
     @State private var caption: String = ""
     @State private var isPickerPresented: Bool = false
     @StateObject var viewModel = UploadViewModel()
-
+    @Binding var tabIndex: Int
 
     var body: some View {
         
@@ -39,6 +40,7 @@ struct UploadView: View {
                     caption = ""
                     viewModel.selectedImage = nil
                     viewModel.postImage = nil
+                    tabIndex = 0
                 } label: {
                     Text("Cancel")
                 }
@@ -80,5 +82,5 @@ struct UploadView: View {
 }
 
 #Preview {
-    UploadView()
+    UploadView(tabIndex: .constant(0))
 }
