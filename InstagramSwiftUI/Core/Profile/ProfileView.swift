@@ -14,29 +14,37 @@ struct ProfileView: View {
         GridItem(.flexible(), spacing: 1)
     ]
     
-    var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack {
+    let user: User
 
-                    headerView
-                    
-                    actionButton
-                    
-                    gridView
-                    
-                }
+    var body: some View {
+        
+        ScrollView {
+            VStack {
+                
+                headerView
+                
+                actionButton
+                
+                gridView
+                
             }
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}, label: {
-                        Image(systemName: "line.3.horizontal")
-                    })
+        }
+        .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    Text("")
+                    Text("")
+                    Button("SignOut") {
+                        AuthService.shared.signout()
+                    }
+                } label: {
+                    Image(systemName: "line.3.horizontal")
                 }
             }
         }
+        
     }
 }
 
@@ -44,7 +52,7 @@ extension ProfileView {
     var headerView: some View {
         VStack {
             HStack(spacing: 30){
-                Image("pimage1")
+                Image(user.profileImageURL ?? "")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 80, height: 80)
@@ -65,11 +73,11 @@ extension ProfileView {
 
             
             VStack(alignment: .leading ) {
-                Text("Ozgun Aksoy")
+                Text(user.fullName ?? "")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                 
-                Text("iOS Developer")
+                Text(user.bio ?? "")
                     .font(.subheadline)
             }
             .padding(.horizontal)
@@ -101,5 +109,5 @@ extension ProfileView {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(user: User.MOCK_USERS.first!)
 }
