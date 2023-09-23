@@ -30,11 +30,13 @@ class RootViewModel: ObservableObject {
 
 struct RootView: View {
     @StateObject var viewModel = RootViewModel()
+    @StateObject var registrationViewModel = RegistrationViewModel()
 
     var body: some View {
         Group {
             if viewModel.userSessions == nil {
                 LoginView()
+                    .environmentObject(registrationViewModel)
             } else {
                 MainTabView()
             }

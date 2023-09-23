@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddEmailView: View {
-    @State private var email: String = ""
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: RegistrationViewModel
     
     var body: some View {
         VStack(spacing: 12) {
@@ -25,7 +25,7 @@ struct AddEmailView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
             
-            TextField("Email", text: $email)
+            TextField("Email", text: $viewModel.email)
                 .textInputAutocapitalization(.never)
                 .modifier(IGTextFieldModifier())
             
@@ -61,5 +61,6 @@ struct AddEmailView: View {
 #Preview {
     NavigationStack {
         AddEmailView()
+            .environmentObject(RegistrationViewModel())
     }
 }

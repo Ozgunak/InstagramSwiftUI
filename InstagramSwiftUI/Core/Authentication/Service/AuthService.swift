@@ -23,7 +23,9 @@ class AuthService {
     }
     
     func createUser(email: String, password: String, username: String) async throws {
-        
+        print(email)
+        print(username)
+        print(password)
     }
     
     func loadUserData() async throws {
