@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F008503B2ABF8A0C003BA8A4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008503A2ABF8A0C003BA8A4 /* SearchView.swift */; };
 		F008503D2ABF90EE003BA8A4 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008503C2ABF90EE003BA8A4 /* UserProfileView.swift */; };
+		F00850402ABF9394003BA8A4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008503F2ABF9394003BA8A4 /* UserManager.swift */; };
 		F0A4C5722ABD5ABE003E4B62 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5712ABD5ABE003E4B62 /* UploadView.swift */; };
 		F0A4C5762ABD627A003E4B62 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5752ABD627A003E4B62 /* LoginView.swift */; };
 		F0A4C5792ABD67BA003E4B62 /* IGTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5782ABD67BA003E4B62 /* IGTextFieldModifier.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		F008503A2ABF8A0C003BA8A4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F008503C2ABF90EE003BA8A4 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		F008503F2ABF9394003BA8A4 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F0A4C5712ABD5ABE003E4B62 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		F0A4C5752ABD627A003E4B62 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F0A4C5782ABD67BA003E4B62 /* IGTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGTextFieldModifier.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 				F008503A2ABF8A0C003BA8A4 /* SearchView.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		F008503E2ABF9382003BA8A4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F008503F2ABF9394003BA8A4 /* UserManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		F0A4C5702ABD5AAE003E4B62 /* Upload */ = {
@@ -248,6 +258,7 @@
 			children = (
 				F0FB2C652AB8F39800C5A089 /* InstagramSwiftUIApp.swift */,
 				F0A4C5842ABF375A003E4B62 /* GoogleService-Info.plist */,
+				F008503E2ABF9382003BA8A4 /* Managers */,
 				F0FB2C732AB8F43C00C5A089 /* Core */,
 				F0FB2C692AB8F39B00C5A089 /* Assets.xcassets */,
 				F0FB2C6B2AB8F39B00C5A089 /* Preview Content */,
@@ -434,6 +445,7 @@
 				F0A4C5722ABD5ABE003E4B62 /* UploadView.swift in Sources */,
 				F0A4C57B2ABD6868003E4B62 /* AddEmailView.swift in Sources */,
 				F0A4C57F2ABD6B41003E4B62 /* PasswordView.swift in Sources */,
+				F00850402ABF9394003BA8A4 /* UserManager.swift in Sources */,
 				F0A4C5812ABD6C07003E4B62 /* CompleteSignUpView.swift in Sources */,
 				F0FB2C7E2AB9194300C5A089 /* HomeView.swift in Sources */,
 				F0A4C5CB2ABF4564003E4B62 /* LoginViewModel.swift in Sources */,

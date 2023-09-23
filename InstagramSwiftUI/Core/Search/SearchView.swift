@@ -6,16 +6,31 @@
 //
 
 import SwiftUI
+import Firebase
+
+class SearchViewModel: ObservableObject {
+    
+    @Published var users = [User]()
+    
+    init() {
+        Task { try await fetchAllUsers() }
+    }
+    
+    func fetchAllUsers() async throws {
+        users = try await UserManager.fetchAllUsers()
+    }
+}
 
 struct SearchView: View {
     
     @State private var searchText: String = ""
-
+    @StateObject var viewModel = SearchViewModel()
+    
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 12) {
-                    ForEach(User.MOCK_USERS) { user in
+                    ForEach(viewModel.users) { user in
                         NavigationLink(value: user) {
                             HStack {
                                 Image(user.profileImageURL ?? "")
