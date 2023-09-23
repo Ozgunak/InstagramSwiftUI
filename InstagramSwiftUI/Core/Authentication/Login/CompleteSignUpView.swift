@@ -12,7 +12,7 @@ struct CompleteSignUpView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Text("Welcome to Instagram")
+            Text("Welcome to Instagram, \(viewModel.username)")
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.top)
@@ -26,7 +26,7 @@ struct CompleteSignUpView: View {
             
             
             Button {
-                Task { try await viewModel.createUser()}
+                Task { try await viewModel.createUser() }
             } label: {
                 Text("Complete Sign Up")
                     .font(.subheadline)
