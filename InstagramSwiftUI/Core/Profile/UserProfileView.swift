@@ -15,9 +15,10 @@ struct UserProfileView: View {
     ]
     
     let user: User
+    @State private var isPresented: Bool = false
 
     var body: some View {
-        NavigationStack {
+        
             ScrollView {
                 VStack {
 
@@ -44,7 +45,11 @@ struct UserProfileView: View {
                     }
                 }
             }
-        }
+            .fullScreenCover(isPresented: $isPresented) {
+                Text("hi")
+            }
+            
+        
     }
 }
 
@@ -59,14 +64,9 @@ extension UserProfileView {
                     .clipShape(.circle)
                 
                 Spacer()
-                
                 ProfileStatsView(count: 13, title: "Posts")
-                
                 ProfileStatsView(count: 100, title: "Followers")
-                
                 ProfileStatsView(count: 134, title: "Following")
-                
-                
             }
             .padding(.horizontal)
 
@@ -86,7 +86,9 @@ extension UserProfileView {
     }
     
     var actionButton: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            isPresented.toggle()
+        }, label: {
             Text("Edit Profile")
                 .font(.subheadline)
                 .fontWeight(.semibold)

@@ -45,6 +45,7 @@ struct ProfileView: View {
             }
         }
         
+        
     }
 }
 
@@ -86,13 +87,21 @@ extension ProfileView {
     }
     
     var actionButton: some View {
-        Button(action: {}, label: {
-            Text("Edit Profile")
+        Button {
+            if user.isCurrentUser {
+            } else {
+                
+            }
+        } label: {
+            Text("Follow")
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .frame(width: 360, height: 32)
+                .background(.blue)
+                .foregroundStyle(.white)
+                .clipShape(.rect(cornerRadius: 6))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
-        })
+        }
     }
     
     var gridView: some View {

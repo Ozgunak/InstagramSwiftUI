@@ -60,7 +60,7 @@ struct SearchView: View {
                 
             }
             .navigationDestination(for: User.self) { user in
-                ProfileView(user: user)
+                ProfileFactory(user: user, navStackNeeded: false)
             }
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
