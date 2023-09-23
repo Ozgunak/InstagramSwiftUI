@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var users: [User] = User.MOCK_USERS
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 32) {
-                    ForEach(1...10, id: \.self) { item in
-                        HomeItem()
+                    ForEach(users) { user in
+                        HomeItem(user: user)
                     }
                 }
             }

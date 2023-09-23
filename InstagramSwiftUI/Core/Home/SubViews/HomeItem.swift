@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeItem: View {
+    let user: User
     var body: some View {
         VStack {
             HStack {
@@ -17,7 +18,7 @@ struct HomeItem: View {
                     .frame(width: 40, height: 40)
                     .clipShape(.circle)
                 
-                Text("Ozgun Aksoy")
+                Text(user.username)
                     .font(.subheadline)
                     .fontWeight(.semibold)
             }
@@ -25,7 +26,7 @@ struct HomeItem: View {
             .padding(.horizontal)
         
             
-            Image("city1")
+            Image(user.profileImageURL ?? "")
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
@@ -41,7 +42,7 @@ struct HomeItem: View {
             .padding(.top, 2)
             
             Group {
-                Text("Ozgun Aksoy ").fontWeight(.semibold) +
+                Text(user.fullName ?? "").fontWeight(.semibold) +
                 Text("City Image 1")
 
             }
@@ -61,5 +62,5 @@ struct HomeItem: View {
 }
 
 #Preview {
-    HomeItem()
+    HomeItem(user: User.MOCK_USERS.first!)
 }
