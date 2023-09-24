@@ -18,7 +18,7 @@ class EditProfileViewModel: ObservableObject {
     @Published var profileImage: Image?
     @Published var fullname: String = ""
     @Published var bio: String = ""
-    
+    private var uiImage: UIImage?
     init(user: User) {
         self.user = user
     }
@@ -28,6 +28,7 @@ class EditProfileViewModel: ObservableObject {
         
         guard let data = try? await item.loadTransferable(type: Data.self) else { return }
         guard let uiImage = UIImage(data: data) else { return }
+        self.uiImage = uiImage
         self.profileImage = Image(uiImage: uiImage)
         
     }
@@ -35,6 +36,12 @@ class EditProfileViewModel: ObservableObject {
     func updateUserData() async throws {
         
         var data: [String: Any] = [:]
+        
+        if let uiImage {
+            let profileString = try? await StorageManager.uploadImage(image: uiImage)
+            data["profileImageURL"] = profileString
+        }
+        
         if !fullname.isEmpty && user.fullName != fullname {
             data["fullName"] = fullname
         }
@@ -68,7 +75,10 @@ struct EditProfileView: View {
                     .fontWeight(.semibold)
                 Spacer()
                 Button(action: {
-                    Task { try await viewModel.updateUserData() }
+                    Task {
+                        try await viewModel.updateUserData()
+                        dismiss()
+                    }
                 }, label: {
                     Text("Done")
                         .fontWeight(.semibold)
