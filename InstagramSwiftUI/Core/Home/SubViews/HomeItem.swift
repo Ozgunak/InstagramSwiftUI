@@ -12,11 +12,7 @@ struct HomeItem: View {
     var body: some View {
         VStack {
             HStack {
-                Image("pimage1")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 40, height: 40)
-                    .clipShape(.circle)
+                IGCircularProfileImageView(user: user, size: .small)
                 
                 Text(user.username)
                     .font(.subheadline)

@@ -24,10 +24,10 @@ struct User: Identifiable, Hashable, Codable {
 
 extension User {
     static var MOCK_USERS: [User] = [
-        User(id: UUID().uuidString, username: "First City", profileImageURL: "pimage1", fullName: "First City", bio: "first", email: "first.com"),
-        User(id: UUID().uuidString, username: "second City", profileImageURL: "city2", fullName: "second City", bio: "second", email: "second.com"),
-        User(id: UUID().uuidString, username: "third City", profileImageURL: "city3", fullName: "third City", bio: "third", email: "third.com"),
-        User(id: UUID().uuidString, username: "fourth City", profileImageURL: "city4", fullName: "fourth City", bio: "fourth", email: "fourth.com"),
-        User(id: UUID().uuidString, username: "fifth City", profileImageURL: "city5", fullName: "fifth City", bio: "fifth", email: "fifth.com")
+        User(id: UUID().uuidString, username: "First City", profileImageURL: nil, fullName: "First City", bio: "first", email: "first.com"),
+        User(id: UUID().uuidString, username: "second City", profileImageURL: nil, fullName: "second City", bio: "second", email: "second.com"),
+        User(id: UUID().uuidString, username: "third City", profileImageURL: nil, fullName: "third City", bio: "third", email: "third.com"),
+        User(id: UUID().uuidString, username: "fourth City", profileImageURL: nil, fullName: "fourth City", bio: "fourth", email: "fourth.com"),
+        User(id: UUID().uuidString, username: "fifth City", profileImageURL: nil, fullName: "fifth City", bio: "fifth", email: "fifth.com")
     ]
 }

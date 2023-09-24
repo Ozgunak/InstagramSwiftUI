@@ -21,6 +21,13 @@ class EditProfileViewModel: ObservableObject {
     private var uiImage: UIImage?
     init(user: User) {
         self.user = user
+        
+        if let fullName = user.fullName {
+            self.fullname = fullName
+        }
+        if let bio = user.bio {
+            self.bio = bio
+        }
     }
     
     func loadImage(from item: PhotosPickerItem?) async {
@@ -95,11 +102,7 @@ struct EditProfileView: View {
                             .clipShape(.circle)
                     
                     } else {
-                        Image("")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 80, height: 80)
-                            .clipShape(.circle)
+                        IGCircularProfileImageView(user: viewModel.user)
                     }
                 
                 Text("Edit Profile Picture")
