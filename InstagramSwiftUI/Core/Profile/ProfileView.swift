@@ -53,11 +53,9 @@ extension ProfileView {
     var headerView: some View {
         VStack {
             HStack(spacing: 30){
-                Image(user.profileImageURL ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 80, height: 80)
-                    .clipShape(.circle)
+                IGCircularProfileImageView(user: user)
+
+                
                 
                 Spacer()
                 
