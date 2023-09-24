@@ -46,8 +46,13 @@ struct UserProfileView: View {
                 }
             }
             .fullScreenCover(isPresented: $isPresented) {
+//                TODO: update data
+            } content: {
                 EditProfileView(user: user)
+
             }
+            
+
             
         
     }

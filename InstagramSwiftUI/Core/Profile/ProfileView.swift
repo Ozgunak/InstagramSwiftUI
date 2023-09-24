@@ -86,10 +86,7 @@ extension ProfileView {
     
     var actionButton: some View {
         Button {
-            if user.isCurrentUser {
-            } else {
-                
-            }
+            // TODO: add like func
         } label: {
             Text("Follow")
                 .font(.subheadline)

@@ -45,7 +45,7 @@ class EditProfileViewModel: ObservableObject {
         var data: [String: Any] = [:]
         
         if let uiImage {
-            let profileString = try? await StorageManager.uploadImage(image: uiImage)
+            let profileString = try? await StorageManager.uploadImage(image: uiImage, savePath: .user)
             data["profileImageURL"] = profileString
         }
         
