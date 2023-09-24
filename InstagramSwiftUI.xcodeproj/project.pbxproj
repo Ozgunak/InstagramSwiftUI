@@ -314,9 +314,9 @@
 		F0FB2C772AB8F45C00C5A089 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F00850432ABF9B27003BA8A4 /* ProfileFactory.swift */,
 				F0FB2C782AB8F53B00C5A089 /* ProfileView.swift */,
 				F008503C2ABF90EE003BA8A4 /* UserProfileView.swift */,
-				F00850432ABF9B27003BA8A4 /* ProfileFactory.swift */,
 				F00850452ABF9D5A003BA8A4 /* EditProfileView.swift */,
 				F0FB2C7A2AB8F5B800C5A089 /* SubViews */,
 			);

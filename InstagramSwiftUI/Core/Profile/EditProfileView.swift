@@ -11,12 +11,17 @@ import Firebase
 
 @MainActor
 class EditProfileViewModel: ObservableObject {
+    @Published var user: User
     @Published var selectedImage: PhotosPickerItem? {
         didSet { Task { await loadImage(from: selectedImage) } }
     }
     @Published var profileImage: Image?
     @Published var fullname: String = ""
     @Published var bio: String = ""
+    
+    init(user: User) {
+        self.user = user
+    }
     
     func loadImage(from item: PhotosPickerItem?) async {
         guard let item = item else { return }
@@ -26,15 +31,50 @@ class EditProfileViewModel: ObservableObject {
         self.profileImage = Image(uiImage: uiImage)
         
     }
+    
+    func updateUserData() async throws {
+        
+        var data: [String: Any] = [:]
+        if !fullname.isEmpty && user.fullName != fullname {
+            data["fullName"] = fullname
+        }
+        if !bio.isEmpty && user.bio != bio {
+            data["bio"] = bio
+        }
+        if !data.isEmpty {
+            try await Firestore.firestore().collection("users").document(user.id).updateData(data)
+        }
+        
+    }
 }
 
 
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
-    @StateObject var viewModel = EditProfileViewModel()
-
+    @StateObject var viewModel: EditProfileViewModel
+    
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: EditProfileViewModel(user: user))
+    }
     var body: some View {
         VStack {
+            HStack{
+                Button("Cancel") {
+                    dismiss()
+                }
+                Spacer()
+                Text("Edit Profile")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                Spacer()
+                Button(action: {
+                    Task { try await viewModel.updateUserData() }
+                }, label: {
+                    Text("Done")
+                        .fontWeight(.semibold)
+                })
+            }
+            .padding(.horizontal)
             PhotosPicker(selection: $viewModel.selectedImage) {
                 VStack {
                     if let image = viewModel.profileImage {
@@ -67,21 +107,6 @@ struct EditProfileView: View {
             
             Spacer()
         }
-        .toolbar(content: {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("Cancel") {
-                    dismiss()
-                }
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {}, label: {
-                    Text("Done")
-                        .fontWeight(.semibold)
-                })
-            }
-        })
-        .navigationTitle("Edit Profile")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -108,7 +133,5 @@ struct EditProfileRowView: View {
     }
 }
 #Preview {
-    NavigationStack {
-        EditProfileView()
-    }
+    EditProfileView(user: User.MOCK_USERS.first!)
 }
