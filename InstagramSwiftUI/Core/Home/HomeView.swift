@@ -15,7 +15,7 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 32) {
                     ForEach(viewModel.posts) { post in
-                        HomeItem(post: post)
+                        HomeItemView(post: post)
                     }
                 }
             }

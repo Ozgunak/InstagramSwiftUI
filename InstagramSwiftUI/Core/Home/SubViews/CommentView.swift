@@ -8,31 +8,6 @@
 import SwiftUI
 import Firebase
 
-@MainActor
-class CommentViewModel: ObservableObject {
-    @Published var post: Post
-    @Published var commentText: String = ""
-    @Published var comments: [Comment] = []
-    init(post: Post) {
-        self.post = post
-        self.comments = post.comments
-    }
-    
-    func addComment() async throws {
-        try await PostManager.addComment(post: post, commentText: commentText)
-    }
-    
-    func updateComments() async throws {
-        comments = try await PostManager.getCommentsWithUser(post: post)
-    }
-    
-    func fetchComments() async throws {
-        comments = try await PostManager.fetchComments(post: post)
-    }
-}
-
-
-
 struct CommentView: View {
     @StateObject var viewModel: CommentViewModel
     @State private var currentUser: User?
@@ -97,7 +72,7 @@ struct CommentView: View {
                 if let currentUserUid = Auth.auth().currentUser?.uid {
                     currentUser = try await UserManager.getUser(userID: currentUserUid)
                 }
-                try await viewModel.updateComments()
+                try await viewModel.fetchComments()
             } catch {
                 print("Error: fetch comments \(error.localizedDescription)")
             }

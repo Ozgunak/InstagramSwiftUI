@@ -1,5 +1,5 @@
 //
-//  HomeItem.swift
+//  HomeItemView.swift
 //  InstagramSwiftUI
 //
 //  Created by özgün aksoy on 2023-09-18.
@@ -9,80 +9,34 @@ import SwiftUI
 import Kingfisher
 import Firebase
 
-@MainActor
-class HomeItemModel: ObservableObject {
-    @Published var post: Post
-    let currentUserId = Auth.auth().currentUser?.uid
 
-    var isLiked: Bool {
-        if let currentUserId {
-            return post.likes.contains(currentUserId)
-        } else {
-            return false
-        }
-    }
-    
-    init(post: Post) {
-        self.post = post
-//        self.comments = post.comments
-    }
-    
-    func like() async throws {
-            try await PostManager.likePost(post: post)
-            if let currentUserId {
-                post.likes.append(currentUserId)
-            }
-    }
-    
-    func unlike() async throws {
-         try await PostManager.unlikePost(post: post)
-        if let currentUserId {
-            post.likes.removeAll(where: { $0.contains(currentUserId) } )
-        }
-    }
 
-}
-
-struct HomeItem: View {
-    let isNavLinkAvaible: Bool
-    @StateObject var viewModel: HomeItemModel
+struct HomeItemView: View {
+    @StateObject var viewModel: HomeItemViewModel
     @State private var isPresented: Bool = false
 
     init(post: Post, isNavLinkAvaible: Bool = true) {
-        self._viewModel = StateObject(wrappedValue: HomeItemModel(post: post))
-        self.isNavLinkAvaible = isNavLinkAvaible
+        self._viewModel = StateObject(wrappedValue: HomeItemViewModel(post: post))
     }
     
     var body: some View {
         VStack {
             HStack {
                 if let user = viewModel.post.user {
-                    if isNavLinkAvaible {
                         NavigationLink {
                             ProfileFactory(user: user, navStackNeeded: false)
                                 .navigationBarBackButtonHidden()
                         } label: {
                             header(user: user)
                         }
-                    } else {
-                        header(user: user)
-                    }
+                    
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
+                        
+            postBody
             
-            if isNavLinkAvaible {
-                NavigationLink {
-                    PostsView(user: viewModel.post.user, post: viewModel.post)
-                        .navigationBarBackButtonHidden()
-                    
-                } label: {
-                    postBody
-                }
-            } else {
-                postBody
-            }
             Text(viewModel.post.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
                 .font(.footnote)
                 .fontWeight(.thin)
@@ -96,7 +50,7 @@ struct HomeItem: View {
     }
 }
 
-extension HomeItem {
+extension HomeItemView {
     func header(user: User) -> some View {
         HStack {
             IGCircularProfileImageView(user: user, size: .small)
@@ -156,5 +110,5 @@ extension HomeItem {
 }
 
 #Preview {
-    HomeItem(post: Post.MOCK_POST)
+    HomeItemView(post: Post.MOCK_POST)
 }

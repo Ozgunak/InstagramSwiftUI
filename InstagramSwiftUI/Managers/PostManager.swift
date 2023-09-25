@@ -45,10 +45,7 @@ struct PostManager {
     }
     
     static func fetchComments(post: Post) async throws -> [Comment] {
-        guard let userId = Auth.auth().currentUser?.uid else { return [] }
-        
         let post = try await postsCollectionPath.document(post.id).getDocument(as: Post.self)
-        
         return try await getCommentsWithUser(post: post)
     }
     

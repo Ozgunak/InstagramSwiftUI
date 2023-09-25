@@ -45,54 +45,27 @@ struct PostsView: View {
             }
             .padding(.horizontal)
             
-            HomeItem(post: viewModel.post, isNavLinkAvaible: false)
-//            HStack {
-//                if let user = viewModel.user {
-//                    IGCircularProfileImageView(user: user, size: .small)
-//                    
-//                    Text(user.username)
-//                        .font(.subheadline)
-//                        .fontWeight(.semibold)
-//                        .padding(.leading, 4)
-//                    
-//                    Spacer()
-//                }
-//            }
-//            .padding(.horizontal)
-//            
-//            KFImage(URL(string: viewModel.post.imageURL))
-//                .resizable()
-//                .scaledToFill()
-//                .frame(height: 500)
-//                .clipped()
-//            
-//            HStack{
-//                Image(systemName: "heart")
-//                Image(systemName: "bubble.right")
-//                Image(systemName: "paperplane")
-//            }
-//            .frame(maxWidth: .infinity, alignment: .leading)
-//            .padding(.horizontal)
-//            .padding(.top, 2)
-//            
-//            Group {
-//                Text("\(viewModel.user?.fullName ?? "") ").fontWeight(.semibold) +
-//                Text(viewModel.post.caption)
-//                
-//            }
-//            .font(.footnote)
-//            .frame(maxWidth: .infinity, alignment: .leading)
-//            .padding(.horizontal)
-//            .padding(.top, 2)
-//            
-//            Text("6h")
-//                .font(.footnote)
-//                .fontWeight(.thin)
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//                .padding(.horizontal)
-//                .padding(.top, 2)
+                
+            HomeItemView(post: viewModel.post, isNavLinkAvaible: false)
+            ScrollView {
+
+                LazyVStack(content: {
+                    ForEach(viewModel.comments) { comment in
+                        CommentItem(comment: comment)
+                            .padding(.horizontal)
+                    }
+                })
+            }
+
             
-            Spacer()
+
+        }
+        .task {
+            do {
+                try await viewModel.fetchComments()
+            } catch {
+                print("Error: updating comments \(error.localizedDescription)")
+            }
         }
     }
     
