@@ -33,4 +33,6 @@ extension User {
         User(id: UUID().uuidString, username: "fourth City", profileImageURL: nil, fullName: "fourth City", bio: "fourth", email: "fourth.com"),
         User(id: UUID().uuidString, username: "fifth City", profileImageURL: nil, fullName: "fifth City", bio: "fifth", email: "fifth.com")
     ]
+    
+    static var MOCK_USER: User = User(id: "xXmosFckXJeQZn8pyHTxDSKmuB73", username: "oz", profileImageURL: Optional("https://firebasestorage.googleapis.com:443/v0/b/instagramswiftui-df1ee.appspot.com/o/profileImages%2F58F006FF-2F3C-4B6E-9294-495EDF5FBE00?alt=media&token=fdf9cc27-ac7a-4c90-a743-5e08ef223c39"), fullName: Optional("Ozgun Ak"), bio: Optional("iOS"), email: "1@2.com", joinDate: nil, followers: Optional(["2IoptF5NE5bYFJyxzWSJXXeGz762"]), following: Optional(["2IoptF5NE5bYFJyxzWSJXXeGz762", "H0vHXan5MjZUqpPSf5ppg7YKzwJ3"]))
 }

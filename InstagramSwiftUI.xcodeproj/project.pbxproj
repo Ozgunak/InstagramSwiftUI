@@ -26,6 +26,8 @@
 		F01B60F42AC141570049E7FD /* PostGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F32AC141570049E7FD /* PostGridViewModel.swift */; };
 		F01B60F72AC153400049E7FD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F62AC153400049E7FD /* ProfileViewModel.swift */; };
 		F01B60FA2AC15ACC0049E7FD /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F92AC15ACC0049E7FD /* EditProfileViewModel.swift */; };
+		F01B60FD2AC164D40049E7FD /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60FC2AC164D40049E7FD /* PostsView.swift */; };
+		F01B60FF2AC1691E0049E7FD /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */; };
 		F0A4C5722ABD5ABE003E4B62 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5712ABD5ABE003E4B62 /* UploadView.swift */; };
 		F0A4C5762ABD627A003E4B62 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5752ABD627A003E4B62 /* LoginView.swift */; };
 		F0A4C5792ABD67BA003E4B62 /* IGTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5782ABD67BA003E4B62 /* IGTextFieldModifier.swift */; };
@@ -95,6 +97,8 @@
 		F01B60F32AC141570049E7FD /* PostGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridViewModel.swift; sourceTree = "<group>"; };
 		F01B60F62AC153400049E7FD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F01B60F92AC15ACC0049E7FD /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		F01B60FC2AC164D40049E7FD /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		F0A4C5712ABD5ABE003E4B62 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		F0A4C5752ABD627A003E4B62 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F0A4C5782ABD67BA003E4B62 /* IGTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGTextFieldModifier.swift; sourceTree = "<group>"; };
@@ -186,6 +190,15 @@
 				F0A4C5802ABD6C07003E4B62 /* CompleteSignUpView.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		F01B60FB2AC164C80049E7FD /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				F01B60FC2AC164D40049E7FD /* PostsView.swift */,
+				F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 		F0A4C5702ABD5AAE003E4B62 /* Upload */ = {
@@ -324,6 +337,7 @@
 		F0FB2C732AB8F43C00C5A089 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F01B60FB2AC164C80049E7FD /* Posts */,
 				F0A4C5BE2ABF38C0003E4B62 /* Authentication */,
 				F0A4C5772ABD67A0003E4B62 /* Components */,
 				F0FB2C762AB8F45500C5A089 /* Home */,
@@ -507,9 +521,11 @@
 				F01B60EA2AC13EC30049E7FD /* RootViewModel.swift in Sources */,
 				F0A4C57F2ABD6B41003E4B62 /* PasswordView.swift in Sources */,
 				F01B60F22AC140000049E7FD /* ProfileHeaderView.swift in Sources */,
+				F01B60FF2AC1691E0049E7FD /* PostsViewModel.swift in Sources */,
 				F008D2EE2AC0DE0B00D7ABC4 /* IGCircularProfileImageView.swift in Sources */,
 				F00850402ABF9394003BA8A4 /* UserManager.swift in Sources */,
 				F0A4C5812ABD6C07003E4B62 /* CompleteSignUpView.swift in Sources */,
+				F01B60FD2AC164D40049E7FD /* PostsView.swift in Sources */,
 				F0FB2C7E2AB9194300C5A089 /* HomeView.swift in Sources */,
 				F01B60F42AC141570049E7FD /* PostGridViewModel.swift in Sources */,
 				F0A4C5CB2ABF4564003E4B62 /* LoginViewModel.swift in Sources */,

@@ -20,7 +20,7 @@ struct SearchView: View {
                         NavigationLink(value: user) {
                             HStack {
                                 IGCircularProfileImageView(user: user, size: .small)
-                                
+                                let _ = print(user)
                                 VStack(alignment: .leading) {
                                     Text(user.username)
                                         .fontWeight(.semibold)
