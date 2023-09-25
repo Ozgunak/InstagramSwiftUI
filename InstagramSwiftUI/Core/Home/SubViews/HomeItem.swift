@@ -48,7 +48,7 @@ struct HomeItem: View {
             } else {
                 postBody
             }
-            Text("6h")
+            Text(post.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
                 .font(.footnote)
                 .fontWeight(.thin)
                 .frame(maxWidth: .infinity, alignment: .leading)
