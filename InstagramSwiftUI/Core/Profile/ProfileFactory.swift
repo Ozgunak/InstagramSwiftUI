@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileFactory: View {
     let user: User
     let navStackNeeded: Bool
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack {
             if user.isCurrentUser && navStackNeeded {
@@ -18,8 +19,19 @@ struct ProfileFactory: View {
                 }
             } else if user.isCurrentUser {
                 UserProfileView(user: user)
+                    .navigationBarBackButtonHidden()
             } else {
                 ProfileView(user: user)
+                    .navigationBarBackButtonHidden()
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Image(systemName: "chevron.left")
+                    .imageScale(.large)
+                    .onTapGesture {
+                        dismiss()
+                    }
             }
         }
     }

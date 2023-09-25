@@ -19,8 +19,6 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Image("titleimage")

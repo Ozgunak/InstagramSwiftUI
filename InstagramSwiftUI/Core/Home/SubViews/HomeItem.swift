@@ -15,17 +15,23 @@ struct HomeItem: View {
         VStack {
             HStack {
                 if let user = post.user {
-                    IGCircularProfileImageView(user: user, size: .small)
-                    
-                    Text(user.username)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .padding(.leading, 4)
+                    NavigationLink {
+                        ProfileFactory(user: user, navStackNeeded: false)        
+                            .navigationBarBackButtonHidden()
+
+                    } label: {
+                        IGCircularProfileImageView(user: user, size: .small)
+                        
+                        Text(user.username)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .padding(.leading, 4)
+                    }
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
-        
+            
             
             KFImage(URL(string: post.imageURL))
                 .resizable()
@@ -64,5 +70,5 @@ struct HomeItem: View {
 }
 
 #Preview {
-    HomeItem(post: Post(id: "1", ownerUid: "1", caption: "", likes: 1, imageURL: "", timeStamp: Timestamp()))
+    HomeItem(post: Post(id: "1", ownerUid: "1", caption: "qweqwe", likes: 1, imageURL: "", timeStamp: Timestamp()))
 }
