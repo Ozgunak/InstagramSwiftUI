@@ -6,20 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-
-@MainActor
-class HomeViewModel: ObservableObject {
-    @Published var posts: [Post] = []
-    
-    init() {
-//        Task { try await fetchPosts() }
-    }
-    
-    func fetchPosts() async throws {
-        posts = try await PostManager.fetchHomeFeedPosts()        
-    }
-}
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()

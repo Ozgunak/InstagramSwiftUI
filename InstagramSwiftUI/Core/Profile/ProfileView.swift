@@ -15,7 +15,7 @@ struct ProfileView: View {
         ScrollView {
             VStack {
                 
-                headerView
+                ProfileHeaderView(user: user)
                 
                 actionButton
                 
@@ -28,8 +28,6 @@ struct ProfileView: View {
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
-                    Text("")
-                    Text("")
                     Button("SignOut") {
                         AuthService.shared.signout()
                     }
@@ -44,40 +42,6 @@ struct ProfileView: View {
 }
 
 extension ProfileView {
-    var headerView: some View {
-        VStack {
-            HStack(spacing: 30){
-                IGCircularProfileImageView(user: user)
-
-                
-                
-                Spacer()
-                
-                ProfileStatsView(count: 13, title: "Posts")
-                
-                ProfileStatsView(count: 100, title: "Followers")
-                
-                ProfileStatsView(count: 134, title: "Following")
-                
-                
-            }
-            .padding(.horizontal)
-
-
-            
-            VStack(alignment: .leading ) {
-                Text(user.fullName ?? "")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                
-                Text(user.bio ?? "")
-                    .font(.subheadline)
-            }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-    }
-    
     var actionButton: some View {
         Button {
             // TODO: add like func

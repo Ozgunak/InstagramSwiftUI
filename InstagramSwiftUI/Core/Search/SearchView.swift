@@ -6,20 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-
-class SearchViewModel: ObservableObject {
-    
-    @Published var users = [User]()
-    
-    init() {
-        Task { try await fetchAllUsers() }
-    }
-    
-    func fetchAllUsers() async throws {
-        users = try await UserManager.fetchAllUsers()
-    }
-}
 
 struct SearchView: View {
     

@@ -8,26 +8,6 @@
 import SwiftUI
 import Kingfisher
 
-class PostGridViewModel: ObservableObject {
-    @Published var posts = [Post]()
-    private let user: User
-    
-    init(user: User) {
-        self.user = user
-        
-        Task { try await fetchUserPosts() }
-    }
-    
-    @MainActor
-    func fetchUserPosts() async throws {
-        self.posts = try await PostManager.fetchUserPost(userId: user.id)
-        
-        for i in 0 ..< posts.count {
-            posts[i].user = self.user
-        }
-    }
-}
-
 struct PostGridView: View {
     @StateObject var viewModel: PostGridViewModel
     

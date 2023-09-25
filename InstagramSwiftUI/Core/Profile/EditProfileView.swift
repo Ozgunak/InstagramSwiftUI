@@ -69,59 +69,67 @@ class EditProfileViewModel: ObservableObject {
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: EditProfileViewModel
-    
+    @State private var isLoading: Bool = false
+
     init(user: User) {
         self._viewModel = StateObject(wrappedValue: EditProfileViewModel(user: user))
     }
     var body: some View {
-        VStack {
-            HStack{
-                Button("Cancel") {
-                    dismiss()
-                }
-                Spacer()
-                Text("Edit Profile")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                Spacer()
-                Button(action: {
-                    Task {
-                        try await viewModel.updateUserData()
+        ZStack {
+            if isLoading {
+                ProgressView()                    
+            }
+            VStack {
+                HStack{
+                    Button("Cancel") {
                         dismiss()
                     }
-                }, label: {
-                    Text("Done")
+                    Spacer()
+                    Text("Edit Profile")
+                        .font(.title3)
                         .fontWeight(.semibold)
-                })
-            }
-            .padding(.horizontal)
-            PhotosPicker(selection: $viewModel.selectedImage) {
-                VStack {
-                    if let image = viewModel.profileImage {
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 80, height: 80)
-                            .clipShape(.circle)
-                    
-                    } else {
-                        IGCircularProfileImageView(user: viewModel.user)
-                    }
-                
-                Text("Edit Profile Picture")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
+                    Spacer()
+                    Button(action: {
+                        Task {
+                            isLoading = true
+                            try await viewModel.updateUserData()
+                            isLoading = false
+                            dismiss()                        
+                        }
+                    }, label: {
+                        Text("Done")
+                            .fontWeight(.semibold)
+                    })
                 }
+                .padding(.horizontal)
+                PhotosPicker(selection: $viewModel.selectedImage) {
+                    VStack {
+                        if let image = viewModel.profileImage {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 80, height: 80)
+                                .clipShape(.circle)
+                        
+                        } else {
+                            IGCircularProfileImageView(user: viewModel.user)
+                        }
+                    
+                    Text("Edit Profile Picture")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                    }
+                }
+                
+                Divider()
+                VStack {
+                    EditProfileRowView(title: "Full Name", placeHolder: "Enter your name", text: $viewModel.fullname)
+                    EditProfileRowView(title: "Bio", placeHolder: "Enter your bio", text: $viewModel.bio)
+                }
+                .padding(.horizontal)
+                
+                Spacer()
             }
-            
-            Divider()
-            VStack {
-                EditProfileRowView(title: "Full Name", placeHolder: "Enter your name", text: $viewModel.fullname)
-                EditProfileRowView(title: "Bio", placeHolder: "Enter your bio", text: $viewModel.bio)
-            }
-            .padding(.horizontal)
-            
-            Spacer()
         }
     }
 }

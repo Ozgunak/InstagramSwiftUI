@@ -16,7 +16,7 @@ struct UserProfileView: View {
             ScrollView {
                 VStack {
 
-                    headerView
+                    ProfileHeaderView(user: user)
                     
                     actionButton
                     
@@ -29,8 +29,6 @@ struct UserProfileView: View {
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Text("")
-                        Text("")
                         Button("SignOut") {
                             AuthService.shared.signout()
                         }
@@ -53,31 +51,6 @@ struct UserProfileView: View {
 }
 
 extension UserProfileView {
-    var headerView: some View {
-        VStack {
-            HStack(spacing: 30){
-                IGCircularProfileImageView(user: user)
-                Spacer()
-                ProfileStatsView(count: 13, title: "Posts")
-                ProfileStatsView(count: 100, title: "Followers")
-                ProfileStatsView(count: 134, title: "Following")
-            }
-            .padding(.horizontal)
-
-
-            
-            VStack(alignment: .leading ) {
-                Text(user.fullName ?? "")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                
-                Text(user.bio ?? "")
-                    .font(.subheadline)
-            }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-    }
     
     var actionButton: some View {
         Button(action: {

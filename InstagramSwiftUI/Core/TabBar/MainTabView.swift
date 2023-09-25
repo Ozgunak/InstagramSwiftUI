@@ -44,7 +44,6 @@ struct MainTabView: View {
                 .tag(3)
 
             
-//            UserProfileView(user: user)
             ProfileFactory(user: user, navStackNeeded: true)
                 .onAppear {
                     selectedIndex = 4
