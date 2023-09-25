@@ -8,12 +8,6 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let gridColumns: [GridItem] = [
-        GridItem(.flexible(), spacing: 1),
-        GridItem(.flexible(), spacing: 1),
-        GridItem(.flexible(), spacing: 1)
-    ]
-    
     let user: User
 
     var body: some View {
@@ -25,7 +19,7 @@ struct ProfileView: View {
                 
                 actionButton
                 
-                gridView
+                PostGridView(user: user)
                 
             }
         }
@@ -96,18 +90,6 @@ extension ProfileView {
                 .foregroundStyle(.white)
                 .clipShape(.rect(cornerRadius: 6))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
-        }
-    }
-    
-    var gridView: some View {
-        LazyVGrid(columns: gridColumns, spacing: 1 ) {
-            ForEach(1...60, id: \.self) { index in
-                Image("city\(index % 6 + 1)")
-                    .resizable()
-                    .scaledToFill()
-                    
-                    
-            }
         }
     }
 }

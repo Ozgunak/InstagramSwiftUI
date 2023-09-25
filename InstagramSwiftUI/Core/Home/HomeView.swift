@@ -17,15 +17,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchPosts() async throws {
-        let snapshot = try await Firestore.firestore().collection("posts").getDocuments()
-        self.posts = snapshot.documents.compactMap( { try? $0.data(as: Post.self) })
-        
-        for i in 0 ..< posts.count {
-            let post = posts[i]
-            let ownerUid = post.ownerUid
-            let postUser = try await UserManager.getUser(userID: ownerUid)
-            posts[i].user = postUser
-        }
+        posts = try await PostManager.fetchHomeFeedPosts()        
     }
 }
 
