@@ -7,20 +7,45 @@
 
 import SwiftUI
 
+@MainActor
+class UserProfileViewModel: ObservableObject {
+    @Published var user: User
+    @Published var posts = [Post]()
+    @Published var isLoading: Bool = false
+    init(user: User) {
+        self.user = user
+    }
+    
+    func fetchUserPosts() async throws {
+        isLoading = true
+        self.posts = try await PostManager.fetchUserPost(userId: user.id)
+        
+        for i in 0 ..< posts.count {
+            posts[i].user = self.user
+        }
+        isLoading = false
+    }
+}
+
 struct UserProfileView: View {
-    let user: User
+    @StateObject var viewModel: UserProfileViewModel
     @State private var isPresented: Bool = false
 
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: UserProfileViewModel(user: user))
+    }
+    
+    
     var body: some View {
         
             ScrollView {
                 VStack {
 
-                    ProfileHeaderView(user: user)
+                    ProfileHeaderView(user: viewModel.user, postCount: viewModel.posts.count)
                     
                     actionButton
                     
-                    PostGridView(user: user)
+                    PostGridView(posts: viewModel.posts, isLoading: viewModel.isLoading)
                     
                 }
             }
@@ -40,8 +65,14 @@ struct UserProfileView: View {
             .fullScreenCover(isPresented: $isPresented) {
 //                TODO: update data
             } content: {
-                EditProfileView(user: user)
-
+                EditProfileView(user: viewModel.user)
+            }
+            .task {
+                do {
+                    try await viewModel.fetchUserPosts()
+                } catch {
+                    print("Error: fetcing posts \(error.localizedDescription)")
+                }
             }
             
 

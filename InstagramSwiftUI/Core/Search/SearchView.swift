@@ -46,6 +46,13 @@ struct SearchView: View {
             }
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                do {
+                    try await viewModel.fetchAllUsers()
+                } catch {
+                    print("Error: fetching users \(error.localizedDescription)")
+                }
+            }
         }
     }
 }

@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     let user: User
+    let postCount: Int
     var body: some View {
         VStack {
             HStack(spacing: 30){
                 IGCircularProfileImageView(user: user)
                 Spacer()
-                ProfileStatsView(count: 13, title: "Posts")
-                ProfileStatsView(count: 100, title: "Followers")
-                ProfileStatsView(count: 134, title: "Following")
+                ProfileStatsView(count: postCount, title: "Posts")
+                ProfileStatsView(count: user.followers?.count ?? 0, title: "Followers")
+                ProfileStatsView(count: user.following?.count ?? 0, title: "Following")
             }
             .padding(.horizontal)
 
@@ -37,5 +38,5 @@ struct ProfileHeaderView: View {
 }
 
 #Preview {
-    ProfileHeaderView(user: User.MOCK_USERS.first!)
+    ProfileHeaderView(user: User.MOCK_USERS.first!, postCount: 0)
 }

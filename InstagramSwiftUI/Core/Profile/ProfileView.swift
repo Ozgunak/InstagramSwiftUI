@@ -7,19 +7,24 @@
 
 import SwiftUI
 
-struct ProfileView: View {
-    let user: User
 
+struct ProfileView: View {
+    @StateObject var viewModel: ProfileViewModel
+
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: ProfileViewModel(user: user))        
+    }
+    
     var body: some View {
         
         ScrollView {
             VStack {
                 
-                ProfileHeaderView(user: user)
+                ProfileHeaderView(user: viewModel.user, postCount: viewModel.posts.count)
                 
                 actionButton
                 
-                PostGridView(user: user)
+                PostGridView(posts: viewModel.posts, isLoading: viewModel.isLoading)
                 
             }
         }
@@ -36,6 +41,13 @@ struct ProfileView: View {
                 }
             }
         }
+        .task {
+            do {
+                try await viewModel.fetchUserPosts()
+            } catch {
+                print("Error: fetching posts \(error.localizedDescription)")
+            }
+        }
         
         
     }
@@ -44,14 +56,32 @@ struct ProfileView: View {
 extension ProfileView {
     var actionButton: some View {
         Button {
-            // TODO: add like func
+            if viewModel.isFollowing() {
+                Task {
+                    do {
+                        try await viewModel.unfollow()
+                    } catch {
+                        print("Error: unfollowing \(error.localizedDescription)")
+                    }
+                }
+            } else {
+                Task {
+                    do {
+                        try await viewModel.follow()
+                        print("followed")
+                    } catch {
+                        print("Error: following \(error.localizedDescription)")
+                    }
+                }
+            }
+            
         } label: {
-            Text("Follow")
+            Text(viewModel.isFollowing() ? "Unfollow" : "Follow")
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .frame(width: 360, height: 32)
-                .background(.blue)
-                .foregroundStyle(.white)
+                .background(viewModel.isFollowing() ? .white : .blue)
+                .foregroundStyle(viewModel.isFollowing() ? .black : .white)
                 .clipShape(.rect(cornerRadius: 6))
                 .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
         }

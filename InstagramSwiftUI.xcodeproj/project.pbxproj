@@ -24,6 +24,8 @@
 		F01B60EE2AC13F750049E7FD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60ED2AC13F750049E7FD /* HomeViewModel.swift */; };
 		F01B60F22AC140000049E7FD /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F12AC140000049E7FD /* ProfileHeaderView.swift */; };
 		F01B60F42AC141570049E7FD /* PostGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F32AC141570049E7FD /* PostGridViewModel.swift */; };
+		F01B60F72AC153400049E7FD /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F62AC153400049E7FD /* ProfileViewModel.swift */; };
+		F01B60FA2AC15ACC0049E7FD /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60F92AC15ACC0049E7FD /* EditProfileViewModel.swift */; };
 		F0A4C5722ABD5ABE003E4B62 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5712ABD5ABE003E4B62 /* UploadView.swift */; };
 		F0A4C5762ABD627A003E4B62 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5752ABD627A003E4B62 /* LoginView.swift */; };
 		F0A4C5792ABD67BA003E4B62 /* IGTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5782ABD67BA003E4B62 /* IGTextFieldModifier.swift */; };
@@ -91,6 +93,8 @@
 		F01B60ED2AC13F750049E7FD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F01B60F12AC140000049E7FD /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		F01B60F32AC141570049E7FD /* PostGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridViewModel.swift; sourceTree = "<group>"; };
+		F01B60F62AC153400049E7FD /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F01B60F92AC15ACC0049E7FD /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		F0A4C5712ABD5ABE003E4B62 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		F0A4C5752ABD627A003E4B62 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F0A4C5782ABD67BA003E4B62 /* IGTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGTextFieldModifier.swift; sourceTree = "<group>"; };
@@ -356,8 +360,10 @@
 			children = (
 				F00850432ABF9B27003BA8A4 /* ProfileFactory.swift */,
 				F0FB2C782AB8F53B00C5A089 /* ProfileView.swift */,
+				F01B60F62AC153400049E7FD /* ProfileViewModel.swift */,
 				F008503C2ABF90EE003BA8A4 /* UserProfileView.swift */,
 				F00850452ABF9D5A003BA8A4 /* EditProfileView.swift */,
+				F01B60F92AC15ACC0049E7FD /* EditProfileViewModel.swift */,
 				F0FB2C7A2AB8F5B800C5A089 /* SubViews */,
 			);
 			path = Profile;
@@ -511,6 +517,7 @@
 				F0A4C5792ABD67BA003E4B62 /* IGTextFieldModifier.swift in Sources */,
 				F01B60E82AC13E940049E7FD /* SearchViewModel.swift in Sources */,
 				F008D2E92AC0A97400D7ABC4 /* StorageManager.swift in Sources */,
+				F01B60FA2AC15ACC0049E7FD /* EditProfileViewModel.swift in Sources */,
 				F008D2F02AC0E4E200D7ABC4 /* Post.swift in Sources */,
 				F0FB2C792AB8F53B00C5A089 /* ProfileView.swift in Sources */,
 				F008503D2ABF90EE003BA8A4 /* UserProfileView.swift in Sources */,
@@ -521,6 +528,7 @@
 				F0A4C5C32ABF3904003E4B62 /* AuthService.swift in Sources */,
 				F01B60EC2AC13EFD0049E7FD /* UploadViewModel.swift in Sources */,
 				F0A4C5C72ABF39D7003E4B62 /* RootView.swift in Sources */,
+				F01B60F72AC153400049E7FD /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

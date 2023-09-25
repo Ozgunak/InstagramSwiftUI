@@ -24,6 +24,7 @@ struct PostManager {
     
     static func fetchUserPost(userId: String) async throws -> [Post] {
         let snapshot = try await Firestore.firestore().collection("posts").whereField("ownerUid", isEqualTo: userId).getDocuments()
-        return snapshot.documents.compactMap({ try? $0.data(as: Post.self) })
+
+        return snapshot.documents.compactMap({ try? $0.data(as: Post.self) }).sorted(by: { $0.timeStamp.seconds > $1.timeStamp.seconds } )
     }
 }

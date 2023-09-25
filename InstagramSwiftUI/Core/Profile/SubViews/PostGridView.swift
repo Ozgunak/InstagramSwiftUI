@@ -9,11 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct PostGridView: View {
-    @StateObject var viewModel: PostGridViewModel
-    
-    init(user: User) {
-        self._viewModel = StateObject(wrappedValue: PostGridViewModel(user: user))
-    }
+    let posts: [Post]
+    var isLoading: Bool
     
     let gridColumns: [GridItem] = [
         GridItem(.flexible(), spacing: 1),
@@ -24,20 +21,26 @@ struct PostGridView: View {
     
     
     var body: some View {
-            LazyVGrid(columns: gridColumns, spacing: 1 ) {
-                ForEach(viewModel.posts) { post in
-                    KFImage(URL(string: post.imageURL))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: imageDimension, height: imageDimension)
-                        .clipped()
+        VStack {
+            if isLoading {
+                ProgressView()
+            } else {
+                LazyVGrid(columns: gridColumns, spacing: 1 ) {
+                    ForEach(posts) { post in
+                        KFImage(URL(string: post.imageURL))
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: imageDimension, height: imageDimension)
+                            .clipped()
                         
                         
+                    }
                 }
             }
         }
+    }
 }
 
 #Preview {
-    PostGridView(user: User.MOCK_USERS.first!)
+    PostGridView(posts: [], isLoading: false)
 }

@@ -16,6 +16,8 @@ struct User: Identifiable, Hashable, Codable {
     var bio: String?
     let email: String
     var joinDate: Timestamp? = Timestamp()
+    var followers: [String]?
+    var following: [String]?
     
     var isCurrentUser: Bool {
         guard let currentUid = Auth.auth().currentUser?.uid else { return false }
