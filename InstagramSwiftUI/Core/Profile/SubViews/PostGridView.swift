@@ -12,7 +12,7 @@ struct PostGridView: View {
     let posts: [Post]
     var isLoading: Bool
     
-    let gridColumns: [GridItem] = [
+    private let gridColumns: [GridItem] = [
         GridItem(.flexible(), spacing: 1),
         GridItem(.flexible(), spacing: 1),
         GridItem(.flexible(), spacing: 1)
@@ -27,13 +27,16 @@ struct PostGridView: View {
             } else {
                 LazyVGrid(columns: gridColumns, spacing: 1 ) {
                     ForEach(posts) { post in
-                        KFImage(URL(string: post.imageURL))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: imageDimension, height: imageDimension)
-                            .clipped()
-                        
-                        
+                        NavigationLink {
+                            PostsView(user: post.user, post: post)
+                                .navigationBarBackButtonHidden()
+                        } label: {
+                            KFImage(URL(string: post.imageURL))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: imageDimension, height: imageDimension)
+                                .clipped()
+                        }
                     }
                 }
             }
