@@ -18,7 +18,7 @@ enum CircularImageSize {
         case .small:
             return 40
         case .medium:
-            return 64
+            return 48
         case .large:
             return 80
         }

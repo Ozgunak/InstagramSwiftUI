@@ -43,4 +43,31 @@ struct PostManager {
             "likes": FieldValue.arrayRemove([userId])
         ])
     }
+    
+    static func fetchComments(post: Post) async throws -> [Comment] {
+        guard let userId = Auth.auth().currentUser?.uid else { return [] }
+        
+        let post = try await postsCollectionPath.document(post.id).getDocument(as: Post.self)
+        
+        return try await getCommentsWithUser(post: post)
+    }
+    
+    static func getCommentsWithUser(post: Post) async  throws -> [Comment] {
+        var comments = post.comments
+        for i in 0 ..< comments.count {
+            let ownerUid = comments[i].ownerUid
+            let commentUser = try await UserManager.getUser(userID: ownerUid)
+            comments[i].user = commentUser
+        }
+        return comments
+    }
+    
+    static func addComment(post: Post, commentText: String) async throws {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        
+        let comment = Comment(id: UUID().uuidString, ownerUid: userId, text: commentText, postId: post.id, timeStamp: Timestamp())
+        try await postsCollectionPath.document(post.id).updateData([
+            "comments": FieldValue.arrayUnion([comment.dictionary])
+        ])
+    }
 }

@@ -89,5 +89,5 @@ extension ProfileView {
 }
 
 #Preview {
-    ProfileView(user: User.MOCK_USERS.first!)
+    ProfileView(user: User.MOCK_USER)
 }

@@ -24,6 +24,7 @@ class HomeItemModel: ObservableObject {
     
     init(post: Post) {
         self.post = post
+//        self.comments = post.comments
     }
     
     func like() async throws {
@@ -31,7 +32,6 @@ class HomeItemModel: ObservableObject {
             if let currentUserId {
                 post.likes.append(currentUserId)
             }
-        
     }
     
     func unlike() async throws {
@@ -40,11 +40,13 @@ class HomeItemModel: ObservableObject {
             post.likes.removeAll(where: { $0.contains(currentUserId) } )
         }
     }
+
 }
 
 struct HomeItem: View {
     let isNavLinkAvaible: Bool
     @StateObject var viewModel: HomeItemModel
+    @State private var isPresented: Bool = false
 
     init(post: Post, isNavLinkAvaible: Bool = true) {
         self._viewModel = StateObject(wrappedValue: HomeItemModel(post: post))
@@ -88,6 +90,9 @@ struct HomeItem: View {
                 .padding(.horizontal)
                 .padding(.top, 2)
         }
+        .sheet(isPresented: $isPresented) {
+            CommentView(post: viewModel.post)
+        }
     }
 }
 
@@ -122,7 +127,12 @@ extension HomeItem {
                     Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
                         .foregroundColor(viewModel.isLiked ? .red : .accent)
                 })
-                Image(systemName: "bubble.right")
+                Button {
+                    isPresented.toggle()
+                } label: {
+                    Image(systemName: "bubble.right")
+                }
+
                 Image(systemName: "paperplane")
             }
             .frame(maxWidth: .infinity, alignment: .leading)
