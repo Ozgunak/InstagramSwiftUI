@@ -9,6 +9,10 @@ import Foundation
 import Firebase
 
 class UserManager {
+   
+    static func getUser(userID: String) async throws -> User {
+        return try await Firestore.firestore().collection("users").document(userID).getDocument(as: User.self)
+    }
     
     @MainActor
     static func fetchAllUsers() async throws -> [User] {

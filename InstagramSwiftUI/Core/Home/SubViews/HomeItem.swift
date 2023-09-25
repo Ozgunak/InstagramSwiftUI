@@ -6,27 +6,33 @@
 //
 
 import SwiftUI
+import Kingfisher
+import Firebase
 
 struct HomeItem: View {
-    let user: User
+    let post: Post
     var body: some View {
         VStack {
             HStack {
-                IGCircularProfileImageView(user: user, size: .small)
-                
-                Text(user.username)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
+                if let user = post.user {
+                    IGCircularProfileImageView(user: user, size: .small)
+                    
+                    Text(user.username)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .padding(.leading, 4)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
         
             
-            Image(user.profileImageURL ?? "")
+            KFImage(URL(string: post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
                 .clipShape(.rect)
+            
             
             HStack{
                 Image(systemName: "heart")
@@ -38,8 +44,8 @@ struct HomeItem: View {
             .padding(.top, 2)
             
             Group {
-                Text(user.fullName ?? "").fontWeight(.semibold) +
-                Text("City Image 1")
+                Text("\(post.user?.fullName ?? "") ").fontWeight(.semibold) +
+                Text(post.caption)
 
             }
             .font(.footnote)
@@ -58,5 +64,5 @@ struct HomeItem: View {
 }
 
 #Preview {
-    HomeItem(user: User.MOCK_USERS.first!)
+    HomeItem(post: Post(id: "1", ownerUid: "1", caption: "", likes: 1, imageURL: "", timeStamp: Timestamp()))
 }
