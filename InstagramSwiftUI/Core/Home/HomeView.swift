@@ -26,6 +26,15 @@ struct HomeView: View {
                         .scaledToFill()
                         .frame(width: 100)
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        // TODO: messages
+                    } label: {
+                        Image(systemName: "ellipsis.message")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                }
             }
             .task {
                 do {

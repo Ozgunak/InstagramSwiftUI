@@ -9,19 +9,52 @@ import SwiftUI
 import Kingfisher
 import Firebase
 
-struct HomeItem: View {
-    let post: Post
-    let isNavLinkAvaible: Bool
+@MainActor
+class HomeItemModel: ObservableObject {
+    @Published var post: Post
+    let currentUserId = Auth.auth().currentUser?.uid
+
+    var isLiked: Bool {
+        if let currentUserId {
+            return post.likes.contains(currentUserId)
+        } else {
+            return false
+        }
+    }
     
-    init(post: Post, isNavLinkAvaible: Bool = true) {
+    init(post: Post) {
         self.post = post
+    }
+    
+    func like() async throws {
+            try await PostManager.likePost(post: post)
+            if let currentUserId {
+                post.likes.append(currentUserId)
+            }
+        
+    }
+    
+    func unlike() async throws {
+         try await PostManager.unlikePost(post: post)
+        if let currentUserId {
+            post.likes.removeAll(where: { $0.contains(currentUserId) } )
+        }
+    }
+}
+
+struct HomeItem: View {
+    let isNavLinkAvaible: Bool
+    @StateObject var viewModel: HomeItemModel
+
+    init(post: Post, isNavLinkAvaible: Bool = true) {
+        self._viewModel = StateObject(wrappedValue: HomeItemModel(post: post))
         self.isNavLinkAvaible = isNavLinkAvaible
     }
     
     var body: some View {
         VStack {
             HStack {
-                if let user = post.user {
+                if let user = viewModel.post.user {
                     if isNavLinkAvaible {
                         NavigationLink {
                             ProfileFactory(user: user, navStackNeeded: false)
@@ -39,7 +72,7 @@ struct HomeItem: View {
             
             if isNavLinkAvaible {
                 NavigationLink {
-                    PostsView(user: post.user, post: post)
+                    PostsView(user: viewModel.post.user, post: viewModel.post)
                         .navigationBarBackButtonHidden()
                     
                 } label: {
@@ -48,7 +81,7 @@ struct HomeItem: View {
             } else {
                 postBody
             }
-            Text(post.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
+            Text(viewModel.post.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
                 .font(.footnote)
                 .fontWeight(.thin)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,14 +105,23 @@ extension HomeItem {
     
     var postBody: some View {
         VStack {
-            KFImage(URL(string: post.imageURL))
+            KFImage(URL(string: viewModel.post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
                 .clipShape(.rect)
             
             HStack{
-                Image(systemName: "heart")
+                Button(action: {
+                    if viewModel.isLiked {
+                        Task { try await viewModel.unlike() }
+                    } else {
+                        Task { try await viewModel.like() }
+                    }
+                }, label: {
+                    Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
+                        .foregroundColor(viewModel.isLiked ? .red : .accent)
+                })
                 Image(systemName: "bubble.right")
                 Image(systemName: "paperplane")
             }
@@ -88,8 +130,8 @@ extension HomeItem {
             .padding(.top, 2)
             
             Group {
-                Text("\(post.user?.fullName ?? "") ").fontWeight(.semibold) +
-                Text(post.caption)
+                Text("\(viewModel.post.user?.fullName ?? "") ").fontWeight(.semibold) +
+                Text(viewModel.post.caption)
                 
             }
             .font(.footnote)
@@ -99,6 +141,8 @@ extension HomeItem {
         }
 
     }
+    
+    
 }
 
 #Preview {
