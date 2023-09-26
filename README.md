@@ -2,7 +2,7 @@
 
 ## Animated GIF
 
-![Simulator Screen Recording - iPhone 15 Pro - 2023-09-25 at 22 57 15](https://github.com/Ozgunak/travel-suggestion-flutter/assets/64470656/1491d061-8f7e-4ed7-a01d-7746e6121797)
+![Simulator Screen Recording - iPhone 15 Pro - 2023-09-26 at 11 18 53](https://github.com/Ozgunak/InstagramSwiftUI/assets/64470656/d0455d4c-683e-49bf-8daf-a287b9368e26)
 
 ## About
 
