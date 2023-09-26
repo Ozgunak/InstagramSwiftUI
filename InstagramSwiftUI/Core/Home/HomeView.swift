@@ -15,7 +15,7 @@ struct HomeView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 if isLoading {
-                    LottieView(name: .loading, loopMode: .loop)
+                    LottiePlusView(name: .loading, loopMode: .loop)
                         .frame(width: 100, height: 100)
                 }
                 LazyVStack(spacing: 32) {

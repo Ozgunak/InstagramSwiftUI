@@ -18,8 +18,7 @@ struct UploadView: View {
         
         ZStack {
             if isLoading {
-//                LoadingScreen(showLoading: $isLoading)
-                LottieView(name: .logoJump, loopMode: .loop)
+                LottiePlusView(name: .logoJump, loopMode: .loop, animationSpeed: 2)
             }
             VStack {
                 HStack {

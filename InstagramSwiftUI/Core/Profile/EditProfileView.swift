@@ -19,7 +19,7 @@ struct EditProfileView: View {
     var body: some View {
         ZStack {
             if isLoading {
-                ProgressView()                    
+                LottiePlusView(name: .loading, loopMode: .loop)
             }
             VStack {
                 HStack{

@@ -50,10 +50,7 @@ struct CompleteSignUpView: View {
             }
             
             if isLoading {
-                LoadingScreen(showLoading: $isLoading)
-//                    .transition(.opacity)
-                    .offset(y: isLoading ? 0 : UIScreen.main.bounds.height)
-                    .animation(.easeIn)
+                LottiePlusView(name: .loading, loopMode: .loop)
             }
 
         }
