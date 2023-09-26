@@ -12,6 +12,7 @@ enum LottieName: String {
     case logoJump
     case like
     case loading
+    case like2
 }
 
 struct LottieView: UIViewRepresentable {

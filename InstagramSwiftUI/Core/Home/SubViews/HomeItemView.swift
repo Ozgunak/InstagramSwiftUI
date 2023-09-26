@@ -9,12 +9,12 @@ import SwiftUI
 import Kingfisher
 import Firebase
 
-
-
 struct HomeItemView: View {
     @StateObject var viewModel: HomeItemViewModel
     @State private var isPresented: Bool = false
-
+    @State private var play: Bool = false
+    @State private var selectedPostID = UUID().uuidString
+    
     init(post: Post, isNavLinkAvaible: Bool = true) {
         self._viewModel = StateObject(wrappedValue: HomeItemViewModel(post: post))
     }
@@ -34,8 +34,7 @@ struct HomeItemView: View {
                     
                 }
             }
-            
-            
+
             postBody
             
             Text(viewModel.post.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
@@ -66,28 +65,42 @@ extension HomeItemView {
     var postBody: some View {
         VStack {
             KFImage(URL(string: viewModel.post.imageURL))
+                .placeholder({
+                    LottieView(name: .loading)
+                })
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)
                 .clipShape(.rect)
-            
+                .onTapGesture(count: 2) {
+                    like()
+                }
+
             HStack{
-                Button(action: {
-                    if viewModel.isLiked {
-                        Task { try await viewModel.unlike() }
-                    } else {
-                        Task { try await viewModel.like() }
-                    }
-                }, label: {
+                Button {
+                    like()
+                } label: {
                     Image(systemName: viewModel.isLiked ? "heart.fill" : "heart")
                         .foregroundColor(viewModel.isLiked ? .red : .accent)
-                })
+                }
+                .overlay(alignment: .center) {
+                    if selectedPostID == viewModel.post.id {
+                        LottiePlusView(name: .like2,
+                                       contentMode: .scaleAspectFill,
+                                       play: $play)
+                        .frame(width: 50, height: 50)
+                        .id(viewModel.post.id)
+                        .allowsHitTesting(false)
+                    }
+                }
+                
+                
                 Button {
                     isPresented.toggle()
                 } label: {
                     Image(systemName: "bubble.right")
                 }
-
+                
                 Image(systemName: "paperplane")
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -121,7 +134,22 @@ extension HomeItemView {
                     .padding(.horizontal)
             }
         }
-    } 
+        
+    }
+    
+    func like() {
+        if viewModel.isLiked {
+            Task {
+                try await viewModel.unlike()
+            }
+        } else {
+            Task {
+                try await viewModel.like()
+                play = true
+                selectedPostID = viewModel.post.id
+            }
+        }
+    }
 }
 
 #Preview {

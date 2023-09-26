@@ -23,7 +23,7 @@ struct PostGridView: View {
     var body: some View {
         VStack {
             if isLoading {
-                LottiePlusView(name: .loading, loopMode: .loop)
+                LottieView(name: .loading, loopMode: .loop)
             } else {
                 LazyVGrid(columns: gridColumns, spacing: 1 ) {
                     ForEach(posts) { post in
