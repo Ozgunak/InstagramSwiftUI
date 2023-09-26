@@ -9,10 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
-    
+    @State private var isLoading: Bool = false
+
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
+                if isLoading {
+                    LottieView(name: .loading, loopMode: .loop)
+                        .frame(width: 100, height: 100)
+                }
                 LazyVStack(spacing: 32) {
                     ForEach(viewModel.posts) { post in
                         HomeItemView(post: post)
@@ -41,7 +46,9 @@ struct HomeView: View {
             }
             .task {
                 do {
+                    isLoading = true
                     try await viewModel.fetchPosts()
+                    isLoading = false
                 } catch {
                     print("Error: error fetching posts \(error.localizedDescription)")
                 }

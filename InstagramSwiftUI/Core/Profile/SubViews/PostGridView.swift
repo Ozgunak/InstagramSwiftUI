@@ -23,7 +23,8 @@ struct PostGridView: View {
     var body: some View {
         VStack {
             if isLoading {
-                ProgressView()
+                LottieView(name: .loading, loopMode: .loop)
+//                    .animation(.easeIn, value: isLoading)
             } else {
                 LazyVGrid(columns: gridColumns, spacing: 1 ) {
                     ForEach(posts) { post in
