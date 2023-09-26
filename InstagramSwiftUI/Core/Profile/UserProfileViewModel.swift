@@ -25,4 +25,8 @@ class UserProfileViewModel: ObservableObject {
         }
         isLoading = false
     }
+    
+    func fetchUser() async throws {
+        self.user = try await UserManager.getUser(userID: user.id)
+    }
 }

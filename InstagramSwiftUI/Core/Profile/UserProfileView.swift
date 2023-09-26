@@ -43,7 +43,7 @@ struct UserProfileView: View {
                 }
             }
             .fullScreenCover(isPresented: $isPresented) {
-//                TODO: update data
+                Task { try await viewModel.fetchUser() }
             } content: {
                 EditProfileView(user: viewModel.user)
             }

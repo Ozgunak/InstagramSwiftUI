@@ -36,6 +36,9 @@ struct HomeView: View {
                     }
                 }
             }
+            .refreshable {
+                try? await viewModel.fetchPosts()
+            }
             .task {
                 do {
                     try await viewModel.fetchPosts()

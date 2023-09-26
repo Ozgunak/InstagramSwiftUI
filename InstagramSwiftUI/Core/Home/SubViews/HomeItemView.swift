@@ -23,18 +23,19 @@ struct HomeItemView: View {
         VStack {
             HStack {
                 if let user = viewModel.post.user {
-                        NavigationLink {
-                            ProfileFactory(user: user, navStackNeeded: false)
-                                .navigationBarBackButtonHidden()
-                        } label: {
-                            header(user: user)
-                        }
+                    NavigationLink {
+                        ProfileFactory(user: user, navStackNeeded: false)
+                            .navigationBarBackButtonHidden()
+                    } label: {
+                        header(user: user)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
                     
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
-                        
+            
+            
             postBody
             
             Text(viewModel.post.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
@@ -42,7 +43,6 @@ struct HomeItemView: View {
                 .fontWeight(.thin)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
-                .padding(.top, 2)
         }
         .sheet(isPresented: $isPresented) {
             CommentView(post: viewModel.post)
@@ -60,6 +60,7 @@ extension HomeItemView {
                 .fontWeight(.semibold)
                 .padding(.leading, 4)
         }
+        
     }
     
     var postBody: some View {
@@ -102,11 +103,25 @@ extension HomeItemView {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)
             .padding(.top, 2)
+            
+            HStack {
+                Text("^[\(viewModel.post.likes.count) like](inflect: true)")
+                    .font(.footnote)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+            }
+            
+            Button {
+                isPresented.toggle()
+            } label: {
+                Text("View all comments")
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+            }
         }
-
-    }
-    
-    
+    } 
 }
 
 #Preview {
