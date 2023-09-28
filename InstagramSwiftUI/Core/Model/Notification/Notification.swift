@@ -35,11 +35,11 @@ enum NotificationType {
     var value: String {
         switch self {
         case .like(let name):
-            "\(name) liked your post."
+            "'\(name)' liked your post."
         case .follow:
             "You have new follower."
         case .message(let name):
-            "You have got a new message from \(name)."
+            "You have got a new message from '\(name)'."
         case .comment:
             "You have new comment"
         }

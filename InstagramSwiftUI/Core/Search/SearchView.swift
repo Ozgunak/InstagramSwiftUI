@@ -37,7 +37,32 @@ struct SearchView: View {
                     }
                 }
                 .padding(.top, 8)
-                .searchable(text: $searchText, prompt: "Search...")
+                .searchable(text: $searchText, prompt: "Search...") {
+                    ForEach(viewModel.searchResultUsers) { user in
+                        NavigationLink(value: user) {
+                            HStack {
+                                IGCircularProfileImageView(user: user, size: .small)
+                                VStack(alignment: .leading) {
+                                    Text(user.username)
+                                        .fontWeight(.semibold)
+                                    
+                                    if user.fullName != nil {
+                                        Text(user.fullName!.capitalized)
+                                    }
+                                }
+                                .font(.footnote)
+                                
+                                Spacer()
+                            }
+                            
+                       }
+                    }
+                }
+                .onChange(of: searchText, initial: true) {
+                    viewModel.searchResultUsers = viewModel.users.filter( { user in
+                        user.username.lowercased().contains(searchText.lowercased())
+                    })
+                }
                 
             }
             .navigationDestination(for: User.self) { user in

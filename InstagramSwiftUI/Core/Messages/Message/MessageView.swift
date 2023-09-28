@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct MessageView: View {
     @Environment(\.dismiss) var dismiss
