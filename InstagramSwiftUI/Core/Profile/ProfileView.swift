@@ -87,9 +87,9 @@ extension ProfileView {
             }
             
             
-            Button {
-                
-                
+            NavigationLink {
+                MessageView(messanger: viewModel.user)
+                    .navigationBarBackButtonHidden()
             } label: {
                 Text("Message")
                     .font(.subheadline)
