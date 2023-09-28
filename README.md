@@ -14,10 +14,11 @@ This project is a basic version of Instagram App.
 * Follow friends
 * Like posts
 * Message user
+* Basic notifications
+
 
 Coming soon
 * Share
-* Notifications
 * Search
 
 ## Tech I Use
