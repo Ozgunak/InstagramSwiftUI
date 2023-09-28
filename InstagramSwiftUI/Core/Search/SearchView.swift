@@ -16,7 +16,7 @@ struct SearchView: View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 12) {
-                    ForEach(viewModel.users) { user in
+                    ForEach(searchText.isEmpty ? viewModel.users : viewModel.searchResultUsers) { user in
                         NavigationLink(value: user) {
                             HStack {
                                 IGCircularProfileImageView(user: user, size: .small)
@@ -37,27 +37,8 @@ struct SearchView: View {
                     }
                 }
                 .padding(.top, 8)
-                .searchable(text: $searchText, prompt: "Search...") {
-                    ForEach(viewModel.searchResultUsers) { user in
-                        NavigationLink(value: user) {
-                            HStack {
-                                IGCircularProfileImageView(user: user, size: .small)
-                                VStack(alignment: .leading) {
-                                    Text(user.username)
-                                        .fontWeight(.semibold)
-                                    
-                                    if user.fullName != nil {
-                                        Text(user.fullName!.capitalized)
-                                    }
-                                }
-                                .font(.footnote)
-                                
-                                Spacer()
-                            }
-                            
-                       }
-                    }
-                }
+                .searchable(text: $searchText, prompt: "Search...")
+                .animation(.default, value: searchText)
                 .onChange(of: searchText, initial: true) {
                     viewModel.searchResultUsers = viewModel.users.filter( { user in
                         user.username.lowercased().contains(searchText.lowercased())
