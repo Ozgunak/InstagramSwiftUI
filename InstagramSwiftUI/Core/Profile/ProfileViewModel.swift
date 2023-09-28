@@ -32,7 +32,6 @@ class ProfileViewModel: ObservableObject {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return false }
         
         if let followers = user.followers {
-            print(followers.contains(currentUserId))
             return followers.contains(currentUserId)
         } else {
             return false

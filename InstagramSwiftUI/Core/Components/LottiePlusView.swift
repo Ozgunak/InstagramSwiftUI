@@ -44,7 +44,6 @@ struct LottiePlusView: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: Context) {
         if play {
             animationView.play { completed in
-                print("lottie status: \(completed)")
                 play = false
             }
         }

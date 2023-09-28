@@ -24,6 +24,7 @@ struct PostGridView: View {
         VStack {
             if isLoading {
                 LottieView(name: .loading, loopMode: .loop)
+                    .frame(width: 250, height: 250)
             } else {
                 LazyVGrid(columns: gridColumns, spacing: 1 ) {
                     ForEach(posts) { post in
