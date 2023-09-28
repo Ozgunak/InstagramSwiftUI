@@ -15,11 +15,10 @@ This project is a basic version of Instagram App.
 * Like posts
 * Message user
 * Basic notifications
-
+* Search user
 
 Coming soon
 * Share
-* Search
 
 ## Tech I Use
 
