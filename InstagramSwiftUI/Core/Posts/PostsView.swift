@@ -37,18 +37,30 @@ struct PostsView: View {
                 
                 Spacer()
                 
-                Image(systemName: "ellipsis.message")
-                    .imageScale(.large)
-                    .onTapGesture {
-                        // TODO: add message
+                if let user = viewModel.user, !user.isCurrentUser {
+                    NavigationLink {
+                        MessageView(messanger: user)
+                            .navigationBarBackButtonHidden()
+                        
+                    } label: {
+                        Image(systemName: "plus.bubble")
+                            .imageScale(.large)
+                        
                     }
+                } else {
+                    Image(systemName: "plus.bubble")
+                        .imageScale(.large)
+                        .hidden()
+                }
+                
+                
             }
             .padding(.horizontal)
             
-                
+            
             HomeItemView(post: viewModel.post, isNavLinkAvaible: false)
             ScrollView {
-
+                
                 LazyVStack(content: {
                     ForEach(viewModel.comments) { comment in
                         CommentItem(comment: comment)
@@ -56,10 +68,11 @@ struct PostsView: View {
                     }
                 })
             }
-
             
-
+            
+            
         }
+        
         .task {
             do {
                 try await viewModel.fetchComments()

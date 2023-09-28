@@ -30,17 +30,6 @@ struct ProfileView: View {
         }
         .navigationTitle("Profile")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar{
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Menu {
-                    Button("SignOut") {
-                        AuthService.shared.signout()
-                    }
-                } label: {
-                    Image(systemName: "line.3.horizontal")
-                }
-            }
-        }
         .task {
             do {
                 try await viewModel.fetchUserPosts()
