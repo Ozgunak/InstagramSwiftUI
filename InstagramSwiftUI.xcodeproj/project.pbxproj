@@ -29,6 +29,7 @@
 		F01B60FD2AC164D40049E7FD /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60FC2AC164D40049E7FD /* PostsView.swift */; };
 		F01B60FF2AC1691E0049E7FD /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */; };
 		F01B61052AC1F3440049E7FD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B61042AC1F3440049E7FD /* Comment.swift */; };
+		F029D53C2AC4FA8400C57099 /* MessageUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D53B2AC4FA8400C57099 /* MessageUserView.swift */; };
 		F03E2ED22AC2040B000724D4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED12AC2040B000724D4 /* CommentView.swift */; };
 		F03E2ED42AC23AB4000724D4 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */; };
 		F03E2ED62AC23AFB000724D4 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */; };
@@ -81,6 +82,11 @@
 		F0EA8DEF2AC34363006E78A3 /* LottiePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DEE2AC34363006E78A3 /* LottiePlusView.swift */; };
 		F0EA8DF12AC34AF5006E78A3 /* like2.json in Resources */ = {isa = PBXBuildFile; fileRef = F0EA8DF02AC34AF5006E78A3 /* like2.json */; };
 		F0EA8DF32AC355A7006E78A3 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = F0EA8DF22AC355A7006E78A3 /* like.json */; };
+		F0EA8DF62AC35C82006E78A3 /* AllMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DF52AC35C82006E78A3 /* AllMessagesView.swift */; };
+		F0EA8DF92AC48F12006E78A3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DF82AC48F12006E78A3 /* Message.swift */; };
+		F0EA8DFB2AC49259006E78A3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DFA2AC49259006E78A3 /* MessageView.swift */; };
+		F0EA8DFD2AC4A1B8006E78A3 /* NewMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DFC2AC4A1B8006E78A3 /* NewMessageView.swift */; };
+		F0EA8DFF2AC4C30F006E78A3 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DFE2AC4C30F006E78A3 /* MessageManager.swift */; };
 		F0FB2C662AB8F39800C5A089 /* InstagramSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB2C652AB8F39800C5A089 /* InstagramSwiftUIApp.swift */; };
 		F0FB2C682AB8F39800C5A089 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB2C672AB8F39800C5A089 /* MainTabView.swift */; };
 		F0FB2C6A2AB8F39B00C5A089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0FB2C692AB8F39B00C5A089 /* Assets.xcassets */; };
@@ -113,6 +119,7 @@
 		F01B60FC2AC164D40049E7FD /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		F01B61042AC1F3440049E7FD /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		F029D53B2AC4FA8400C57099 /* MessageUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserView.swift; sourceTree = "<group>"; };
 		F03E2ED12AC2040B000724D4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewModel.swift; sourceTree = "<group>"; };
 		F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
@@ -137,6 +144,11 @@
 		F0EA8DEE2AC34363006E78A3 /* LottiePlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlusView.swift; sourceTree = "<group>"; };
 		F0EA8DF02AC34AF5006E78A3 /* like2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like2.json; sourceTree = "<group>"; };
 		F0EA8DF22AC355A7006E78A3 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
+		F0EA8DF52AC35C82006E78A3 /* AllMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMessagesView.swift; sourceTree = "<group>"; };
+		F0EA8DF82AC48F12006E78A3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F0EA8DFA2AC49259006E78A3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		F0EA8DFC2AC4A1B8006E78A3 /* NewMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageView.swift; sourceTree = "<group>"; };
+		F0EA8DFE2AC4C30F006E78A3 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		F0FB2C622AB8F39800C5A089 /* InstagramSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0FB2C652AB8F39800C5A089 /* InstagramSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramSwiftUIApp.swift; sourceTree = "<group>"; };
 		F0FB2C672AB8F39800C5A089 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -203,6 +215,7 @@
 				F008503F2ABF9394003BA8A4 /* UserManager.swift */,
 				F008D2E82AC0A97400D7ABC4 /* StorageManager.swift */,
 				F01B60E32AC11F670049E7FD /* PostManager.swift */,
+				F0EA8DFE2AC4C30F006E78A3 /* MessageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -233,6 +246,31 @@
 				F01B61042AC1F3440049E7FD /* Comment.swift */,
 			);
 			path = Comment;
+			sourceTree = "<group>";
+		};
+		F029D53A2AC4FA6F00C57099 /* AllMessages */ = {
+			isa = PBXGroup;
+			children = (
+				F0EA8DF52AC35C82006E78A3 /* AllMessagesView.swift */,
+				F029D53B2AC4FA8400C57099 /* MessageUserView.swift */,
+			);
+			path = AllMessages;
+			sourceTree = "<group>";
+		};
+		F029D53D2AC5031000C57099 /* NewMessage */ = {
+			isa = PBXGroup;
+			children = (
+				F0EA8DFC2AC4A1B8006E78A3 /* NewMessageView.swift */,
+			);
+			path = NewMessage;
+			sourceTree = "<group>";
+		};
+		F029D53E2AC5031E00C57099 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				F0EA8DFA2AC49259006E78A3 /* MessageView.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		F0A4C5702ABD5AAE003E4B62 /* Upload */ = {
@@ -312,6 +350,7 @@
 		F0A4C5CC2ABF4771003E4B62 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F0EA8DF72AC48F04006E78A3 /* Message */,
 				F01B61032AC1F3330049E7FD /* Comment */,
 				F0A4C5CE2ABF4779003E4B62 /* Post */,
 				F0A4C5CD2ABF4775003E4B62 /* User */,
@@ -344,6 +383,24 @@
 				F0EA8DF02AC34AF5006E78A3 /* like2.json */,
 			);
 			path = "Lottoe Files";
+			sourceTree = "<group>";
+		};
+		F0EA8DF42AC35C78006E78A3 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				F029D53D2AC5031000C57099 /* NewMessage */,
+				F029D53A2AC4FA6F00C57099 /* AllMessages */,
+				F029D53E2AC5031E00C57099 /* Message */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		F0EA8DF72AC48F04006E78A3 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				F0EA8DF82AC48F12006E78A3 /* Message.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		F0FB2C592AB8F39800C5A089 = {
@@ -387,6 +444,7 @@
 		F0FB2C732AB8F43C00C5A089 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F0EA8DF42AC35C78006E78A3 /* Messages */,
 				F0A4C5BE2ABF38C0003E4B62 /* Authentication */,
 				F0A4C5772ABD67A0003E4B62 /* Components */,
 				F0FB2C762AB8F45500C5A089 /* Home */,
@@ -576,15 +634,18 @@
 				F01B60E62AC121B10049E7FD /* PostGridView.swift in Sources */,
 				F0FB2C682AB8F39800C5A089 /* MainTabView.swift in Sources */,
 				F01B60E42AC11F670049E7FD /* PostManager.swift in Sources */,
+				F0EA8DFD2AC4A1B8006E78A3 /* NewMessageView.swift in Sources */,
 				F0FB2C662AB8F39800C5A089 /* InstagramSwiftUIApp.swift in Sources */,
 				F0A4C5722ABD5ABE003E4B62 /* UploadView.swift in Sources */,
 				F0A4C57B2ABD6868003E4B62 /* AddEmailView.swift in Sources */,
+				F0EA8DFB2AC49259006E78A3 /* MessageView.swift in Sources */,
 				F01B60EA2AC13EC30049E7FD /* RootViewModel.swift in Sources */,
 				F0EA8DE12AC2AC37006E78A3 /* LoadingScreen.swift in Sources */,
 				F03E2ED62AC23AFB000724D4 /* CommentViewModel.swift in Sources */,
 				F0A4C57F2ABD6B41003E4B62 /* PasswordView.swift in Sources */,
 				F01B60F22AC140000049E7FD /* ProfileHeaderView.swift in Sources */,
 				F01B60FF2AC1691E0049E7FD /* PostsViewModel.swift in Sources */,
+				F0EA8DF62AC35C82006E78A3 /* AllMessagesView.swift in Sources */,
 				F008D2EE2AC0DE0B00D7ABC4 /* IGCircularProfileImageView.swift in Sources */,
 				F00850402ABF9394003BA8A4 /* UserManager.swift in Sources */,
 				F03E2ED82AC23B38000724D4 /* UserProfileViewModel.swift in Sources */,
@@ -609,8 +670,11 @@
 				F0A4C5C92ABF3C18003E4B62 /* RegistrationViewModel.swift in Sources */,
 				F01B61052AC1F3440049E7FD /* Comment.swift in Sources */,
 				F0A4C5C32ABF3904003E4B62 /* AuthService.swift in Sources */,
+				F0EA8DFF2AC4C30F006E78A3 /* MessageManager.swift in Sources */,
 				F01B60EC2AC13EFD0049E7FD /* UploadViewModel.swift in Sources */,
+				F029D53C2AC4FA8400C57099 /* MessageUserView.swift in Sources */,
 				F0A4C5C72ABF39D7003E4B62 /* RootView.swift in Sources */,
+				F0EA8DF92AC48F12006E78A3 /* Message.swift in Sources */,
 				F01B60F72AC153400049E7FD /* ProfileViewModel.swift in Sources */,
 				F03E2ED42AC23AB4000724D4 /* HomeItemViewModel.swift in Sources */,
 			);

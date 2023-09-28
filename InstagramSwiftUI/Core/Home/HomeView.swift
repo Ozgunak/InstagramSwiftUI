@@ -32,8 +32,10 @@ struct HomeView: View {
                         .frame(width: 100)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+                    NavigationLink {
                         // TODO: messages
+                        AllMessagesView()
+                            .navigationBarBackButtonHidden()
                     } label: {
                         Image(systemName: "ellipsis.message")
                             .resizable()

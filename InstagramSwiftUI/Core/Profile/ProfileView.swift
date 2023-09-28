@@ -55,35 +55,51 @@ struct ProfileView: View {
 
 extension ProfileView {
     var actionButton: some View {
-        Button {
-            if viewModel.isFollowing() {
-                Task {
-                    do {
-                        try await viewModel.unfollow()
-                    } catch {
-                        print("Error: unfollowing \(error.localizedDescription)")
+        HStack {
+            Button {
+                if viewModel.isFollowing() {
+                    Task {
+                        do {
+                            try await viewModel.unfollow()
+                        } catch {
+                            print("Error: unfollowing \(error.localizedDescription)")
+                        }
+                    }
+                } else {
+                    Task {
+                        do {
+                            try await viewModel.follow()
+                        } catch {
+                            print("Error: following \(error.localizedDescription)")
+                        }
                     }
                 }
-            } else {
-                Task {
-                    do {
-                        try await viewModel.follow()
-                        print("followed")
-                    } catch {
-                        print("Error: following \(error.localizedDescription)")
-                    }
-                }
+                
+            } label: {
+                Text(viewModel.isFollowing() ? "Unfollow" : "Follow")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .frame(width: 170, height: 32)
+                    .background(viewModel.isFollowing() ? .white : .blue)
+                    .foregroundStyle(viewModel.isFollowing() ? .black : .white)
+                    .clipShape(.rect(cornerRadius: 6))
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
             }
             
-        } label: {
-            Text(viewModel.isFollowing() ? "Unfollow" : "Follow")
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .frame(width: 360, height: 32)
-                .background(viewModel.isFollowing() ? .white : .blue)
-                .foregroundStyle(viewModel.isFollowing() ? .black : .white)
-                .clipShape(.rect(cornerRadius: 6))
-                .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
+            
+            Button {
+                
+                
+            } label: {
+                Text("Message")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .frame(width: 170, height: 32)
+                    .background(.white)
+                    .foregroundStyle(.black)
+                    .clipShape(.rect(cornerRadius: 6))
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
+            }
         }
     }
 }
