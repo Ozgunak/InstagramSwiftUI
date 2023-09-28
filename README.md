@@ -29,3 +29,4 @@ Coming soon
 * Kingfisher
 * Async/Await
 * MVVM
+* Lottie Animations
