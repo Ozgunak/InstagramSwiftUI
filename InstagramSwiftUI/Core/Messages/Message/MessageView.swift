@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import Kingfisher
 
 struct MessageView: View {
     @Environment(\.dismiss) var dismiss
@@ -24,7 +25,7 @@ struct MessageView: View {
             } label: {
                 Text("Go to profile")
             }
-
+            
             if viewModel.messages.isEmpty {
                 Spacer()
                 Text("No messages yet")
@@ -39,28 +40,37 @@ struct MessageView: View {
                                 if message.messageWithId == Auth.auth().currentUser?.uid {
                                     HStack {
                                         IGCircularProfileImageView(user: messanger, size: .small)
-                                    
+                                        
                                         VStack(alignment: .leading) {
+                                            
+                                            if let post = message.post {
+                                                postView(post: post)
+                                            }
+                                            
                                             Text(message.messageText)
                                                 .padding(.vertical, 4)
                                                 .padding(.horizontal, 6)
                                                 .clipShape(.rect(cornerRadius: 6))
-                                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
+                                                .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray, lineWidth: 1))
                                             
                                             Text(message.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))
                                                 .font(.footnote)
                                                 .fontWeight(.thin)
                                                 .frame(maxWidth: .infinity, alignment: .leading)
                                         }
-
+                                        
                                         Spacer()
                                     }
                                     .padding(.horizontal)
                                 } else {
                                     HStack {
                                         Spacer()
-                                    
+                                        
                                         VStack(alignment: .trailing) {
+                                            if let post = message.post {
+                                                postView(post: post)
+                                            }
+                                            
                                             Text(message.messageText)
                                                 .padding(.vertical, 4)
                                                 .padding(.horizontal, 6)
@@ -78,7 +88,7 @@ struct MessageView: View {
                             }
                         }
                     }
-                }          
+                }
             }
             Spacer()
             HStack {
@@ -118,6 +128,32 @@ struct MessageView: View {
                     }
             }
             
+        }
+        .task {
+            try? await viewModel.getUserMessages()
+        }
+    }
+}
+
+extension MessageView {
+    func postView(post: Post) -> some View {
+        HStack {
+
+            NavigationLink {
+                PostsView(user: post.user, post: post)
+                    .navigationBarBackButtonHidden()
+            } label: {
+                VStack {
+                    KFImage(URL(string: post.imageURL))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 250, height: 250)
+                        .clipped()
+                        .clipShape(.rect(cornerRadius: 6))
+                    Text(post.caption)
+                        .font(.footnote)
+                }
+            }
         }
     }
 }

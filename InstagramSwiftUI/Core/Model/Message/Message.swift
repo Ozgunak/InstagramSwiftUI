@@ -15,6 +15,7 @@ struct Message: Identifiable, Hashable, Codable {
     var ownerUid: String
     var messageWithId: String
     var messageText: String
+    var post: Post?
     var timeStamp: Timestamp
     
     var dictionary: [String: Any] {
