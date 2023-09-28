@@ -37,7 +37,7 @@ struct HomeView: View {
                         AllMessagesView()
                             .navigationBarBackButtonHidden()
                     } label: {
-                        Image(systemName: "ellipsis.message")
+                        Image(systemName: "plus.bubble")
                             .resizable()
                             .scaledToFill()
                     }

@@ -31,29 +31,22 @@ struct MessageUserView: View {
     
     var body: some View {
         HStack{
-            let _ = print("he")
             if let messanger = viewModel.messanger {
-                let _ = print("name of user \(messanger.username)")
                 IGCircularProfileImageView(user: messanger, size: .small)
                 
                 VStack(alignment: .leading) {
-                    // name
                     Text(messanger.fullName ?? messanger.username)
                         .font(.subheadline)
                     HStack {
-                        // last message
                         Text("Last message: \(viewModel.message.messageText)")
                             .font(.caption)
-                        // last message time interval
                         Text(viewModel.message.timeStamp.dateValue().formatted(.relative(presentation: .named)))
                             .font(.caption)
                             .foregroundStyle(Color(.systemGray))
                         
                     }
                 }
-                Spacer()
-                // isSeen dot
-                
+                Spacer()                
                 Image(systemName: "camera")
             }
         }

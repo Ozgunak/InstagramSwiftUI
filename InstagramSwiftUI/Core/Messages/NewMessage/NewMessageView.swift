@@ -20,6 +20,7 @@ class NewMessageViewModel: ObservableObject {
 }
 
 struct NewMessageView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var searchText: String = ""
     @StateObject var viewModel = NewMessageViewModel()
     
@@ -56,6 +57,15 @@ struct NewMessageView: View {
             }
             .navigationTitle("New Message")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image(systemName: "chevron.left")
+                        .imageScale(.large)
+                        .onTapGesture {
+                            dismiss()
+                        }
+                }
+            }
             .task {
                 do {
                     try await viewModel.fetchAllUsers()

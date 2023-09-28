@@ -31,8 +31,17 @@ struct AllMessagesView: View {
             ScrollView{
                 LazyVStack {
                     ForEach(viewModel.messages) { message in
-                        MessageUserView(message: message)
-                        Text(message.messageWithId).hidden().font(.system(size: 4))
+                        NavigationLink {
+                            if let messanger = viewModel.users.first(where: { $0.id == message.messageWithId }) {
+                                MessageView(messanger: messanger)
+                                    .navigationBarBackButtonHidden()
+                            }
+                        } label: {
+                            MessageUserView(message: message)
+                            Text(message.messageWithId).hidden().font(.system(size: 4))
+                        }
+
+                        
                     }
                 }
             }
@@ -52,6 +61,7 @@ struct AllMessagesView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
                         NewMessageView()
+                            .navigationBarBackButtonHidden()
                     } label: {
                         Image(systemName: "plus.bubble")
                     }
