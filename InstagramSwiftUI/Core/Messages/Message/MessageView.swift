@@ -50,7 +50,14 @@ struct MessageView: View {
     }
     var body: some View {
         VStack {
-            
+            NavigationLink {
+                if let user = viewModel.messanger {
+                    ProfileFactory(user: user, navStackNeeded: false)
+                }
+            } label: {
+                Text("Go to profile")
+            }
+
             if viewModel.messages.isEmpty {
                 Spacer()
                 Text("No messages yet")
