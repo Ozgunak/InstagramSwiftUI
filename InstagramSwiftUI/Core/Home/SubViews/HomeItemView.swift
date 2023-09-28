@@ -14,7 +14,8 @@ struct HomeItemView: View {
     @State private var isPresented: Bool = false
     @State private var play: Bool = false
     @State private var selectedPostID = UUID().uuidString
-    
+    @State private var sharePresented: Bool = false
+
     init(post: Post, isNavLinkAvaible: Bool = true) {
         self._viewModel = StateObject(wrappedValue: HomeItemViewModel(post: post))
     }
@@ -101,7 +102,16 @@ extension HomeItemView {
                     Image(systemName: "bubble.right")
                 }
                 
-                Image(systemName: "paperplane")
+                Button {
+                    sharePresented.toggle()
+                } label: {
+                    Image(systemName: "paperplane")
+                }
+                .sheet(isPresented: $sharePresented, content: {
+                    ShareView(post: viewModel.post)
+                })
+
+                
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal)

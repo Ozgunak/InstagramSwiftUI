@@ -33,7 +33,6 @@ struct HomeView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
-                        // TODO: messages
                         AllMessagesView()
                             .navigationBarBackButtonHidden()
                     } label: {

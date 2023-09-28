@@ -37,6 +37,7 @@
 		F029D54A2AC54D2900C57099 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D5492AC54D2900C57099 /* Notification.swift */; };
 		F029D54C2AC54E3700C57099 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D54B2AC54E3700C57099 /* NotificationManager.swift */; };
 		F029D54E2AC5624E00C57099 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D54D2AC5624E00C57099 /* MessageViewModel.swift */; };
+		F029D5502AC5DCE300C57099 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D54F2AC5DCE300C57099 /* ShareView.swift */; };
 		F03E2ED22AC2040B000724D4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED12AC2040B000724D4 /* CommentView.swift */; };
 		F03E2ED42AC23AB4000724D4 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */; };
 		F03E2ED62AC23AFB000724D4 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */; };
@@ -81,6 +82,7 @@
 		F0A4C5C92ABF3C18003E4B62 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5C82ABF3C18003E4B62 /* RegistrationViewModel.swift */; };
 		F0A4C5CB2ABF4564003E4B62 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5CA2ABF4564003E4B62 /* LoginViewModel.swift */; };
 		F0A4C5D02ABF4786003E4B62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A4C5CF2ABF4786003E4B62 /* User.swift */; };
+		F0E81D602AC605FA008B562C /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E81D5F2AC605FA008B562C /* ShareViewModel.swift */; };
 		F0EA8DE12AC2AC37006E78A3 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DE02AC2AC37006E78A3 /* LoadingScreen.swift */; };
 		F0EA8DE42AC33C4D006E78A3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F0EA8DE32AC33C4D006E78A3 /* Lottie */; };
 		F0EA8DE62AC33C81006E78A3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA8DE52AC33C81006E78A3 /* LottieView.swift */; };
@@ -134,6 +136,7 @@
 		F029D5492AC54D2900C57099 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		F029D54B2AC54E3700C57099 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F029D54D2AC5624E00C57099 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		F029D54F2AC5DCE300C57099 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		F03E2ED12AC2040B000724D4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewModel.swift; sourceTree = "<group>"; };
 		F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 		F0A4C5C82ABF3C18003E4B62 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		F0A4C5CA2ABF4564003E4B62 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F0A4C5CF2ABF4786003E4B62 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F0E81D5F2AC605FA008B562C /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		F0EA8DE02AC2AC37006E78A3 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		F0EA8DE52AC33C81006E78A3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		F0EA8DE82AC33CED006E78A3 /* logoJump.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logoJump.json; sourceTree = "<group>"; };
@@ -545,6 +549,8 @@
 			children = (
 				F0FB2C802AB9195B00C5A089 /* HomeItemView.swift */,
 				F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */,
+				F029D54F2AC5DCE300C57099 /* ShareView.swift */,
+				F0E81D5F2AC605FA008B562C /* ShareViewModel.swift */,
 				F03E2ED12AC2040B000724D4 /* CommentView.swift */,
 				F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */,
 			);
@@ -662,6 +668,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F029D5502AC5DCE300C57099 /* ShareView.swift in Sources */,
 				F029D5402AC5451B00C57099 /* NewMessageViewModel.swift in Sources */,
 				F0A4C57D2ABD6A76003E4B62 /* CreateUsernameView.swift in Sources */,
 				F008503B2ABF8A0C003BA8A4 /* SearchView.swift in Sources */,
@@ -692,6 +699,7 @@
 				F03E2ED22AC2040B000724D4 /* CommentView.swift in Sources */,
 				F01B60FD2AC164D40049E7FD /* PostsView.swift in Sources */,
 				F0EA8DEF2AC34363006E78A3 /* LottiePlusView.swift in Sources */,
+				F0E81D602AC605FA008B562C /* ShareViewModel.swift in Sources */,
 				F0FB2C7E2AB9194300C5A089 /* HomeView.swift in Sources */,
 				F01B60F42AC141570049E7FD /* PostGridViewModel.swift in Sources */,
 				F0A4C5CB2ABF4564003E4B62 /* LoginViewModel.swift in Sources */,

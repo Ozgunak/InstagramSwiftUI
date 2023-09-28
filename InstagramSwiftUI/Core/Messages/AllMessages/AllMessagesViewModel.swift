@@ -16,7 +16,7 @@ class AllMessagesViewModel: ObservableObject {
     func fetchAllUsers() async throws {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         users = try await UserManager.fetchAllUsers()
-        let otherUsers = users.filter({ $0.id != userId })
-        messages = try await MessageManager.fetchUsersWithMessages(userId: userId, otherUsers: otherUsers)
+        users.removeAll(where: { $0.id == Auth.auth().currentUser?.uid })
+        messages = try await MessageManager.fetchUsersWithMessages(userId: userId, otherUsers: users)
     }
 }
