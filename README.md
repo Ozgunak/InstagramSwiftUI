@@ -13,10 +13,10 @@ This project is a basic version of Instagram App.
 * Add comment
 * Follow friends
 * Like posts
-  
+* Message user
+
 Coming soon
 * Share
-* Message user
 * Notifications
 * Search
 
