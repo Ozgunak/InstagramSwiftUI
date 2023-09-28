@@ -13,10 +13,10 @@ This project is a basic version of Instagram App.
 * Add comment
 * Follow friends
 * Like posts
-  
+* Message user
+
 Coming soon
 * Share
-* Message user
 * Notifications
 * Search
 
@@ -29,3 +29,4 @@ Coming soon
 * Kingfisher
 * Async/Await
 * MVVM
+* Lottie Animations
