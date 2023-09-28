@@ -92,7 +92,7 @@ struct CommentItem: View {
                     
                     VStack(alignment: .leading) {
                         HStack {
-                            Text(user.username)
+                            Text(user.fullName ?? user.username)
                                 .font(.footnote)
                             
                             Text(comment.timeStamp.dateValue().formatted(.relative(presentation: .numeric)))

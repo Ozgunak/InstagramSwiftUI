@@ -40,6 +40,7 @@ struct MessageUserView: View {
                     HStack {
                         Text("Last message: \(viewModel.message.messageText)")
                             .font(.caption)
+                            .lineLimit(1)
                         Text(viewModel.message.timeStamp.dateValue().formatted(.relative(presentation: .named)))
                             .font(.caption)
                             .foregroundStyle(Color(.systemGray))

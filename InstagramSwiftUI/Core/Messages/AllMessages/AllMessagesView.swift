@@ -38,10 +38,10 @@ struct AllMessagesView: View {
                             }
                         } label: {
                             MessageUserView(message: message)
-                            Text(message.messageWithId).hidden().font(.system(size: 4))
+                                .padding(.bottom, 4)
+                            
                         }
-
-                        
+                        Text(message.messageWithId).hidden().font(.system(size: 8)) // dummy text
                     }
                 }
             }

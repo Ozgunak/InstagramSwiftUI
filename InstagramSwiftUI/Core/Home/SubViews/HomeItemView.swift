@@ -54,7 +54,7 @@ extension HomeItemView {
         HStack {
             IGCircularProfileImageView(user: user, size: .small)
             
-            Text(user.username)
+            Text(user.fullName ?? user.username)
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .padding(.leading, 4)
