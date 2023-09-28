@@ -36,6 +36,7 @@
 		F029D5472AC54B9000C57099 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D5462AC54B9000C57099 /* NotificationView.swift */; };
 		F029D54A2AC54D2900C57099 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D5492AC54D2900C57099 /* Notification.swift */; };
 		F029D54C2AC54E3700C57099 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D54B2AC54E3700C57099 /* NotificationManager.swift */; };
+		F029D54E2AC5624E00C57099 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D54D2AC5624E00C57099 /* MessageViewModel.swift */; };
 		F03E2ED22AC2040B000724D4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED12AC2040B000724D4 /* CommentView.swift */; };
 		F03E2ED42AC23AB4000724D4 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */; };
 		F03E2ED62AC23AFB000724D4 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */; };
@@ -132,6 +133,7 @@
 		F029D5462AC54B9000C57099 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		F029D5492AC54D2900C57099 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		F029D54B2AC54E3700C57099 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		F029D54D2AC5624E00C57099 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		F03E2ED12AC2040B000724D4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewModel.swift; sourceTree = "<group>"; };
 		F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				F0EA8DFA2AC49259006E78A3 /* MessageView.swift */,
+				F029D54D2AC5624E00C57099 /* MessageViewModel.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				F0A4C5C72ABF39D7003E4B62 /* RootView.swift in Sources */,
 				F0EA8DF92AC48F12006E78A3 /* Message.swift in Sources */,
 				F01B60F72AC153400049E7FD /* ProfileViewModel.swift in Sources */,
+				F029D54E2AC5624E00C57099 /* MessageViewModel.swift in Sources */,
 				F029D54C2AC54E3700C57099 /* NotificationManager.swift in Sources */,
 				F03E2ED42AC23AB4000724D4 /* HomeItemViewModel.swift in Sources */,
 			);

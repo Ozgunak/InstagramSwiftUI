@@ -29,43 +29,40 @@ struct NotificationView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel = NotificationViewModel()
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(viewModel.notifications) { notification in
-                        HStack {
-                            
-                            Text(notification.notificationText)
-                                .font(.subheadline)
-                                .lineLimit(2)
-                                .padding(.leading, 6)
-                            
-                            Spacer()
-                            
-                            Text(notification.timeStamp.dateValue().formatted(.relative(presentation: .named)))
+        NavigationStack {
+            VStack {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.notifications) { notification in
+                            HStack {
+                                
+                                Text(notification.notificationText)
+                                    .font(.subheadline)
+                                    .lineLimit(2)
+                                    .padding(.leading, 6)
+                                
+                                Spacer()
+                                
+                                Text(notification.timeStamp.dateValue().formatted(.relative(presentation: .named)))
+                                    .font(.footnote)
+                                    .fontWeight(.thin)
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                            }
+                            .padding(.horizontal)
+                            .padding(.vertical, 4)
                         }
-                        .padding(.horizontal)
                     }
                 }
+                
             }
+            .navigationTitle("Notifications")
+            .navigationBarTitleDisplayMode(.inline)
             
-        }
-        .navigationTitle("Notifications")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Image(systemName: "chevron.left")
-                    .imageScale(.large)
-                    .onTapGesture {
-                        dismiss()
-                    }
-            }
         }
     }
 }
 
 #Preview {
-    NavigationStack {
         NotificationView()
-    }
+    
 }

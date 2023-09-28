@@ -26,10 +26,13 @@ class HomeItemViewModel: ObservableObject {
     }
     
     func like() async throws {
-            try await PostManager.likePost(post: post)
-            if let currentUserId {
-                post.likes.append(currentUserId)
-            }
+        try await PostManager.likePost(post: post)
+        if let currentUserId {
+            post.likes.append(currentUserId)
+        
+            let notification = Notification(fromUid: currentUserId, toId: post.user?.id ?? "", fromName: post.user?.username ?? "", notificationText: NotificationType.like(name: post.user?.fullName ?? "").value, timeStamp: Timestamp())
+            try await NotificationManager.addNotification(notification: notification)
+        }
     }
     
     func unlike() async throws {

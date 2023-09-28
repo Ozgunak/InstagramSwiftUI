@@ -20,6 +20,9 @@ class CommentViewModel: ObservableObject {
     
     func addComment() async throws {
         try await PostManager.addComment(post: post, commentText: commentText)
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let notification = Notification(fromUid: userId, toId: post.ownerUid, fromName: "", notificationText: NotificationType.comment.value, timeStamp: Timestamp())
+        try await NotificationManager.addNotification(notification: notification)
     }
     
     func updateComments() async throws {

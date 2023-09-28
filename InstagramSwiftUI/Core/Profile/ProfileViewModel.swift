@@ -42,6 +42,13 @@ class ProfileViewModel: ObservableObject {
         guard let currentUserId = Auth.auth().currentUser?.uid else { return }
         try await UserManager.follow(followingUserId: currentUserId, followedId: user.id)
         user.followers?.append(currentUserId)
+        
+        let notification = Notification(fromUid: currentUserId,
+                                        toId: user.id,
+                                        fromName: user.username,
+                                        notificationText: NotificationType.follow.value,
+                                        timeStamp: Timestamp())
+        try await NotificationManager.addNotification(notification: notification)
     }
     
     func unfollow() async throws {

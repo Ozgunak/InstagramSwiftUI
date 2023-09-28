@@ -36,7 +36,7 @@ struct MainTabView: View {
                 .tag(2)
 
             
-            Text("Notifications")
+            NotificationView()
                 .onAppear {
                     selectedIndex = 3
                 }
