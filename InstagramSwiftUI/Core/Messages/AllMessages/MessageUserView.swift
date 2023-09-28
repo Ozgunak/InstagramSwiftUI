@@ -6,21 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-
-@MainActor
-class MessageUserViewModel: ObservableObject {
-    @Published var message: Message
-    @Published var messanger: User?
-    
-    init(message: Message) {
-        self.message = message
-    }
-    
-    func getMessageUser() async throws {
-        messanger = try await UserManager.getUser(userID: message.messageWithId)
-    }
-}
 
 struct MessageUserView: View {
     @StateObject var viewModel: MessageUserViewModel
@@ -63,5 +48,5 @@ struct MessageUserView: View {
 }
 
 #Preview {
-    MessageUserView(message: Message(messageId: "B7A1731B-51F9-4B55-A895-F91576E84D3D", ownerUid: "RyBNzroloScxW6JMfYsmtAtFxVm1", messageWithId: "Bt4sYd1cfwcOUzdvq3DnNVzycQJ2", messageText: "Hello", timeStamp: Timestamp()))
+    MessageUserView(message: Message.MOCK_MESSAGE)
 }

@@ -30,6 +30,9 @@
 		F01B60FF2AC1691E0049E7FD /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */; };
 		F01B61052AC1F3440049E7FD /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B61042AC1F3440049E7FD /* Comment.swift */; };
 		F029D53C2AC4FA8400C57099 /* MessageUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D53B2AC4FA8400C57099 /* MessageUserView.swift */; };
+		F029D5402AC5451B00C57099 /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D53F2AC5451B00C57099 /* NewMessageViewModel.swift */; };
+		F029D5422AC5453200C57099 /* AllMessagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D5412AC5453200C57099 /* AllMessagesViewModel.swift */; };
+		F029D5442AC5454900C57099 /* MessageUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029D5432AC5454900C57099 /* MessageUserViewModel.swift */; };
 		F03E2ED22AC2040B000724D4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED12AC2040B000724D4 /* CommentView.swift */; };
 		F03E2ED42AC23AB4000724D4 /* HomeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */; };
 		F03E2ED62AC23AFB000724D4 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */; };
@@ -120,6 +123,9 @@
 		F01B60FE2AC1691E0049E7FD /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		F01B61042AC1F3440049E7FD /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		F029D53B2AC4FA8400C57099 /* MessageUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserView.swift; sourceTree = "<group>"; };
+		F029D53F2AC5451B00C57099 /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
+		F029D5412AC5453200C57099 /* AllMessagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMessagesViewModel.swift; sourceTree = "<group>"; };
+		F029D5432AC5454900C57099 /* MessageUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageUserViewModel.swift; sourceTree = "<group>"; };
 		F03E2ED12AC2040B000724D4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		F03E2ED32AC23AB4000724D4 /* HomeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemViewModel.swift; sourceTree = "<group>"; };
 		F03E2ED52AC23AFB000724D4 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
@@ -252,7 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				F0EA8DF52AC35C82006E78A3 /* AllMessagesView.swift */,
+				F029D5412AC5453200C57099 /* AllMessagesViewModel.swift */,
 				F029D53B2AC4FA8400C57099 /* MessageUserView.swift */,
+				F029D5432AC5454900C57099 /* MessageUserViewModel.swift */,
 			);
 			path = AllMessages;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				F0EA8DFC2AC4A1B8006E78A3 /* NewMessageView.swift */,
+				F029D53F2AC5451B00C57099 /* NewMessageViewModel.swift */,
 			);
 			path = NewMessage;
 			sourceTree = "<group>";
@@ -625,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F029D5402AC5451B00C57099 /* NewMessageViewModel.swift in Sources */,
 				F0A4C57D2ABD6A76003E4B62 /* CreateUsernameView.swift in Sources */,
 				F008503B2ABF8A0C003BA8A4 /* SearchView.swift in Sources */,
 				F0EA8DE62AC33C81006E78A3 /* LottieView.swift in Sources */,
@@ -634,6 +644,7 @@
 				F01B60E62AC121B10049E7FD /* PostGridView.swift in Sources */,
 				F0FB2C682AB8F39800C5A089 /* MainTabView.swift in Sources */,
 				F01B60E42AC11F670049E7FD /* PostManager.swift in Sources */,
+				F029D5422AC5453200C57099 /* AllMessagesViewModel.swift in Sources */,
 				F0EA8DFD2AC4A1B8006E78A3 /* NewMessageView.swift in Sources */,
 				F0FB2C662AB8F39800C5A089 /* InstagramSwiftUIApp.swift in Sources */,
 				F0A4C5722ABD5ABE003E4B62 /* UploadView.swift in Sources */,
@@ -670,6 +681,7 @@
 				F0A4C5C92ABF3C18003E4B62 /* RegistrationViewModel.swift in Sources */,
 				F01B61052AC1F3440049E7FD /* Comment.swift in Sources */,
 				F0A4C5C32ABF3904003E4B62 /* AuthService.swift in Sources */,
+				F029D5442AC5454900C57099 /* MessageUserViewModel.swift in Sources */,
 				F0EA8DFF2AC4C30F006E78A3 /* MessageManager.swift in Sources */,
 				F01B60EC2AC13EFD0049E7FD /* UploadViewModel.swift in Sources */,
 				F029D53C2AC4FA8400C57099 /* MessageUserView.swift in Sources */,

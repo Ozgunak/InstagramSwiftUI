@@ -6,20 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-
-@MainActor
-class AllMessagesViewModel: ObservableObject {
-    @Published var users = [User]()
-    @Published var messages: [Message] = []
-    
-    func fetchAllUsers() async throws {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
-        users = try await UserManager.fetchAllUsers()
-        let otherUsers = users.filter({ $0.id != userId })
-        messages = try await MessageManager.fetchUsersWithMessages(userId: userId, otherUsers: otherUsers)
-    }
-}
 
 struct AllMessagesView: View {
     @Environment(\.dismiss) var dismiss
